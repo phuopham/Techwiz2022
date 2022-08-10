@@ -1,6 +1,6 @@
 {
-  "name": "test-project",
+  "name": "eStudiez",
   "version": "1.0.0",
-  "description": "A Vue.js project",
-  "main": "src/main.js"
+  "description": "eStudiez project for Techwiz@2022",
+  "main": "index.html"
 }
