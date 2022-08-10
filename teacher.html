@@ -1,84 +1,235 @@
-<div>
-    <table class="table table-bordered">
-        <thead>
-            <tr class="text-center">
-                <th>Name</th>
-                <th>Mark.Math</th>
-                <th>Mark.Physic</th>
-                <th>Mark.Chemist</th>
-                <th>Parents</th>
-                <th>Progress</th>
-                <th>Teacher Name</th>
-                <th>Update</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr class="text-center" ng-repeat="student in list">
-                <td>{{student.name}}</td>
-                <td>{{student.mark.math}}</td>
-                <td>{{student.mark.physic}}</td>
-                <td>{{student.mark.chemist}}</td>
-                <td>{{student.parents}}</td>
-                <td>{{student.progress}}</td>
-                <td>{{student.teachername}}</td>
-                <td>
-                    <button type="button" class="btn btn-primary" data-toggle="modal"
-                        data-target="#exampleModal" ng-click="edit($index)">Edit</button>
-                    <button class="btn btn-danger" ng-click="del($index)">Del</button>
-                </td>
-            </tr>
-        </tbody>
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Edit student</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    </form method="get">
-                    <div class="modal-body">
+<div class="container">
+    <nav class="navbar navbar-expand-lg">
+        <div>
+            <a class="navbar-brand text-weight-bold" href="index.html">
+                <span>
+                    Hello Le Kim Tung
+                </span>
+            </a>
+        </div>
 
-                        <div class="form-group">
-                            <label>Name</label>
-                            <input class="form-control" type="text" ng-model="name">
-                            <input type="text" ng-model="index" hidden>
-                        </div>
-                        <div>
-                            <label>Mark-Math</label>
-                            <input class="form-control" type="text" ng-model="math">
-                        </div>
-                        <div>
-                            <label>Mark-Physic</label>
-                            <input class="form-control" type="text" ng-model="physic">
-                        </div>
-                        <div>
-                            <label>Mark-Chemist</label>
-                            <input class="form-control" type="text" ng-model="chemist">
-                        </div>
-                        <div>
-                            <label>Parents</label>
-                            <input class="form-control" type="text" ng-model="parents">
-                        </div>
-                        <div>
-                            <label>Progress</label>
-                            <input class="form-control" type="text" ng-model="progress">
-                        </div>
-                        <div>
-                            <label>Teacher Name</label>
-                            <input class="form-control" type="text" ng-model="teachername">
-                        </div>
+        <div class="d-none d-lg-flex ms-auto flex-column ">
+            <ul class="navbar-nav ">
 
+                <li class="nav-item ">
+                    <a class="nav-link" href="#!/student#mark"> Student Mark </a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="#!/student#mark"> Academic Progress </a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="#!/student#resource"> Study Resource </a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="#!/student#class"> Revision class </a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="#!/student#feedback"> Feedback </a>
+                </li>
 
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" ng-click="save()" class="btn btn-primary close" data-dismiss="modal" aria-label="Close">Save changes</button>
-                    </div>
-                    </form>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Loggout</a>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+</div>
+
+<!-- your mark -->
+<div class="container my-5" id="mark">
+
+    <div class="row pe-5">
+        <div class="col-md-6">
+            <div class="d-flex justify-content-center d-md-block mb-3">
+                <h2>
+                    Your mark
+                </h2>
+            </div>
+
+            <form class="form-group" action="">
+                <table class="table ">
+                    <tr class="table-warning">
+                        <td>Name</td>
+                        <td>Math</td>
+                        <td>Physic</td>
+                        <td>Chemist</td>
+                    </tr>
+                    <tbody>
+                        <tr>
+                            <td class="text-nowrap">Nguyen Hoang Nam</td>
+                            <td>7</td>
+                            <td>8</td>
+                            <td>9</td>
+                        </tr>
+                        <tr>
+                            <td class="text-nowrap">Tran Van B</td>
+                            <td>5</td>
+                            <td>9</td>
+                            <td>7</td>
+                        </tr>
+                        <tr>
+                            <td class="text-nowrap">Chemist Dang</td>
+                            <td>8</td>
+                            <td>9</td>
+                            <td>7</td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" class="form-control" placeholder="Name"></td>
+                            <td><input type="number" class="form-control" placeholder="Mark"></td>
+                            <td><input type="number" class="form-control" placeholder="Mark"></td>
+                            <td><input type="number" class="form-control" placeholder="Mark"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="d-flex justify-content-end">
+                    <button class="btn btn-warning" type="submit">Add mark</button>
                 </div>
+            </form>
+
+
+        </div>
+        <!-- academic progress -->
+        <div class="col-md-6">
+            <div class="d-flex justify-content-center d-md-block mb-3">
+                <h2 class="text-end">
+                    Your Progress
+                </h2>
+            </div>
+            <div>
+                Nguyen Hoang Nam
+            </div>
+            <div class="progress" style="height: 20px;">
+                <div class="progress-bar bg-warning" role="progressbar" style="width: 60%;" aria-valuenow="25"
+                    aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <div class="text-center">60%</div>
+            <div>
+                Tran Van B
+            </div>
+            <div class="progress" style="height: 20px;">
+                <div class="progress-bar bg-warning" role="progressbar" style="width: 40%;" aria-valuenow="25"
+                    aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <div class="text-center">40%</div>
+            <div>
+                Chemist Dang
+            </div>
+            <div class="progress" style="height: 20px;">
+                <div class="progress-bar bg-warning" role="progressbar" style="width: 70%;" aria-valuenow="25"
+                    aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <div class="text-center">70%</div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- study resource -->
+<div class="container my-5" id="resource">
+
+    <div class="row pe-5">
+        <!-- revision class -->
+        <div class="col-md-6">
+            <div class="d-flex justify-content-center d-md-block mb-3">
+                <h2>
+                    Revision class
+                </h2>
+            </div>
+            <div class="ps-5">
+                <b>Teacher:</b> Le Danh Tu
+            </div>
+            <div class="ps-5">
+                <ol>
+                    <li>Nguyen Van A</li>
+                    <li>Tran Thi F</li>
+                    <li>Cao Thanh C</li>
+                    <li>Hoang V</li>
+                </ol>
             </div>
         </div>
-    </table>
+        <div class="col-md-6">
+            <div class="d-flex justify-content-center d-md-block mb-3">
+                <h2 class="text-end">
+                    Your Resource
+                </h2>
+            </div>
+            <form action="" class="form-group">
+                <table class="table">
+                    <tr class="table-warning">
+                        <td>Subject</td>
+                        <td>resource</td>
+                    </tr>
+                    <tbody>
+                        <tr>
+                            <td>Math</td>
+                            <td><a href="">Video</a> </td>
+                        </tr>
+                        <tr>
+                            <td>Physic</td>
+                            <td><a href="">Document</a></td>
+                        </tr>
+                        <tr>
+                            <td>Chemist</td>
+                            <td> N/A</td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" class="form-control" placeholder="Name"></td>
+                            <td><input type="text" class="form-control" placeholder="Link to resource"></td>
+                        </tr>
+                    </tbody>
+
+                </table>
+                <div>
+                    <button type="submit" class="btn btn-warning">Add document</button>
+                </div>
+            </form>
+
+
+        </div>
+
+
+    </div>
+</div>
+
+
+
+<!-- feedback -->
+<div class="container my-5" id="feedback">
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="d-flex justify-content-center d-md-block">
+                <h2>
+                    Feedback
+                </h2>
+            </div>
+            <form action="" class="form-group">
+                <div class="contact_form-container">
+                    <div>
+                        <div>
+                            <input class="form-control rounded-0" type="text" placeholder="Title">
+                        </div>
+                        <div class="mt-5">
+                            <textarea class="form-control rounded-0" style="resize: none;" rows="5"
+                                placeholder="Message"></textarea>
+                        </div>
+                        <div class="mt-5">
+                            <button class="btn btn-warning" type="submit">
+                                Send
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+
+            </form>
+        </div>
+        <div class="col-md-6">
+            <div class="contact_img-box">
+                <img src="images/students.jpg" alt="">
+            </div>
+        </div>
+    </div>
+</div>
