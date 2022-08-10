@@ -12,6 +12,10 @@
 
 body {
     font-family: gotham;
+    background-image: url("../images/photo-1472289065668-ce650ac443d2.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
 }
 
 .form-control {

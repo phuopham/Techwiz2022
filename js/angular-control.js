@@ -23,6 +23,11 @@ app.config(function ($routeProvider) {
 
 // Config
 app.controller("loginController", function ($scope, $location, $http) {
+    $scope.scrolllogin = function(event){
+        event.preventDefault();
+        const element = document.getElementById("loginform");
+        element.scrollIntoView();
+    }
     $scope.errMessage = "";
     $scope.handleLogin = function () {
         $http({
@@ -110,10 +115,29 @@ app.controller("studentController", function ($scope, $location) {
     };
 });
 
-app.controller("teacherController", function ($scope, $location) {
+app.controller("teacherController", function ($scope, $location , $http) {
     if(!localStorage['user']){
         $location.path('/');
     };
+    $http.get("json/students.json")
+        .then(function(res){
+            // all data 
+            $scope.liststudent = res.data ;
+            // length data
+            var length = $scope.liststudent.length ;
+            console.log(length);
+            // get data localstorage
+            var check = JSON.parse(window.localStorage.getItem('user'));
+            console.log(check['teachername']);
+            // new list
+            $scope.list = [] ;
+            for(i=0 ; i < length ; i++){
+                if($scope.liststudent[i]['teachername'] === check['teachername']){
+                    $scope.list.push($scope.liststudent[i]) ;
+                }
+            }
+            console.log($scope.list);
+        });
 });
 
 app.controller("parentController", function ($scope, $location) {

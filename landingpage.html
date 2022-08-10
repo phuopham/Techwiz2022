@@ -1,4 +1,13 @@
-<div id="welcome-mess" >
+<div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center" style="background-image: url('images/27-271677_green-chalkboard-png-blackboard.png');  background-repeat: no-repeat;
+background-size: contain, cover; background-position: center;">
+    <div class="col-md-5 p-lg-5 mx-auto my-5">
+        <h1 class="display-4 fw-normal text-white">Punny headline</h1>
+        <p class="lead fw-normal text-white">And an even wittier subheading to boot. Jumpstart your marketing efforts with this
+            example based on Apple’s marketing pages.</p>
+        <a class="btn btn-warning" ng-click="scrolllogin($event)" href="#">Start Now</a>
+    </div>
+</div>
+<div id="welcome-mess">
     <div class="container d-flex justify-content-center">
         <img class="" src="images/hero.png" alt="">
     </div>
@@ -6,8 +15,9 @@
         <h1 class="display-1">Welcome to eStudies Protal</h1>
     </div>
 </div>
-<div class="container">
+<div class="container" id="loginform">
     <form ng-submit="handleLogin()">
+<<<<<<< HEAD
         <div class="d-flex row">
             <div class="col-6 form-floating mb-3">
                 <input class="form-control" type="text" ng-model="name" placeholder="name">
@@ -30,5 +40,30 @@
             <label class=""></label>
             <button class="btn btn-warning test">Access</button>
         </div>
+=======
+        <div class="col-6">
+            <div class="col-12 form-floating mb-3">
+                <input class="form-control" type="text" ng-model="name" placeholder="name" id="floatingName">
+                <label for="floatingName">eStudies Name:</label>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="form-check">
+                <input class="form-check-input" type="radio" ng-model="type" ng-value="1">
+                <label class="form-check-label">Student</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" ng-model="type" ng-value="2">
+                <label class="form-check-label">Teacher</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" ng-model="type" ng-value="3">
+                <label class="form-check-label">Parent/Guardian</label>
+            </div>
+            <div class="mt-4">
+                <label class=""></label>
+                <button class="btn btn-warning">Access</button>
+            </div>
+>>>>>>> fe21177291cb39982fe88945257f155d2d54f914
     </form>
 </div>
