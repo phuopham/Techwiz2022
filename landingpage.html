@@ -1,4 +1,4 @@
-<div id="welcome-mess" >
+<div id="welcome-mess">
     <div class="container d-flex justify-content-center">
         <img class="" src="images/hero.png" alt="">
     </div>
@@ -8,27 +8,28 @@
 </div>
 <div class="container">
     <form ng-submit="handleLogin()">
-        <div class="d-flex row">
-            <div class="col-6 form-floating mb-3">
+        <div class="col-6">
+            <div class="col-12 form-floating mb-3">
                 <input class="form-control" type="text" ng-model="name" placeholder="name" id="floatingName">
                 <label for="floatingName">eStudies Name:</label>
             </div>
         </div>
-        <div class="form-check">
-            <input class="form-check-input" type="radio" ng-model="type" ng-value="1">
-            <label class="form-check-label">You are Student?</label>
-        </div>
-        <div class="form-check">
-            <input class="form-check-input" type="radio" ng-model="type" ng-value="2">
-            <label class="form-check-label">You are Teacher?</label>
-        </div>
-        <div class="form-check">
-            <input class="form-check-input" type="radio" ng-model="type" ng-value="3">
-            <label class="form-check-label">You are Parent?</label>
-        </div>
-        <div class="">
-            <label class=""></label>
-            <button class="btn btn-warning">Access</button>
-        </div>
+        <div class="col-6">
+            <div class="form-check">
+                <input class="form-check-input" type="radio" ng-model="type" ng-value="1">
+                <label class="form-check-label">Student</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" ng-model="type" ng-value="2">
+                <label class="form-check-label">Teacher</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" ng-model="type" ng-value="3">
+                <label class="form-check-label">Parent/Guardian</label>
+            </div>
+            <div class="mt-4">
+                <label class=""></label>
+                <button class="btn btn-warning">Access</button>
+            </div>
     </form>
 </div>

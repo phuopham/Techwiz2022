@@ -45,6 +45,7 @@ app.controller("loginController", function ($scope, $location, $http) {
                             if (Array.isArray(success.data)) {
                                 for(i = 0; i < success.data.length; i++) {
                                     if ($scope.name == (success.data[i]).name) {
+                                        caseErr = true;
                                         localStorage.setItem('user', JSON.stringify(success.data[i]));
                                         alert("Login Success!\nRedirecting to the next page...");
                                         $location.path('/student');
@@ -63,6 +64,7 @@ app.controller("loginController", function ($scope, $location, $http) {
                             if (Array.isArray(success.data)) {
                                 for(i = 0; i < success.data.length; i++) {
                                     if ($scope.name == (success.data[i]).teachername) {
+                                        caseErr = true;
                                         localStorage.setItem('user', JSON.stringify(success.data[i]));
                                         alert("Login Success!\nRedirecting to the next page...");
                                         $location.path('/teacher');
@@ -81,6 +83,7 @@ app.controller("loginController", function ($scope, $location, $http) {
                             if (Array.isArray(success.data)) {
                                 for(i = 0; i < success.data.length; i++) {
                                     if ($scope.name == (success.data[i]).parents) {
+                                        caseErr = true;
                                         localStorage.setItem('user', JSON.stringify(success.data[i]));
                                         alert("Login Success!\nRedirecting to the next page...");
                                         $location.path('/parent');
