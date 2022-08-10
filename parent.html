@@ -1,1 +1,118 @@
-I am Parent
+<div class="container">
+    <nav class="navbar navbar-expand-lg">
+        <div class="navbar-brand">
+            Parent of <b>Nguyen Hoang Nam</b>
+        </div>
+
+        <div class="d-none d-lg-flex ms-auto flex-column ">
+            <ul class="navbar-nav ">
+
+                <li class="nav-item ">
+                    <a class="nav-link" href="#!/student#mark"> View mark </a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="#!/student#mark"> Academic Progress </a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="#!/student#resource"> Study Resource </a>
+                </li>
+
+                <li class="nav-item ">
+                    <a class="nav-link" href="#!/student#feedback"> Feedback </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Loggout</a>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+</div>
+
+<!-- your mark -->
+<div class="container my-5" id="mark">
+
+    <div class="row pe-5">
+        <div class="col-md-6">
+            <div class="d-flex justify-content-center d-md-block mb-3">
+                <h2>
+                    View mark
+                </h2>
+            </div>
+            <table class="table ">
+                <tr class="table-warning">
+                    <td>Subject</td>
+                    <td>Mark</td>
+                </tr>
+                <tbody>
+                    <tr>
+                        <td>Math</td>
+                        <td>9</td>
+                    </tr>
+                    <tr>
+                        <td>Physic</td>
+                        <td>7</td>
+                    </tr>
+                    <tr>
+                        <td>Chemist</td>
+                        <td>8</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+        <!-- academic progress -->
+        <div class="col-md-6">
+            <div class="d-flex justify-content-center d-md-block mb-3">
+                <h2 class="text-end">
+                    Academic Progress
+                </h2>
+            </div>
+            <div class="progress" style="height: 20px;">
+                <div class="progress-bar bg-warning" role="progressbar" style="width: 60%;" aria-valuenow="25"
+                    aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <div class="text-center">60%</div>
+        </div>
+    </div>
+</div>
+
+<!-- feedback -->
+<div class="container my-5" id="feedback">
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="contact_img-box">
+                <img src="images/students.jpg" alt="">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="d-flex justify-content-center d-md-block mb-3">
+                <h2>
+                    Feedback
+                </h2>
+            </div>
+            <form action="" class="form-group">
+                <div class="contact_form-container">
+                    <div>
+                        <div>
+                            <input class="form-control" type="text" placeholder="Title">
+                        </div>
+                        <div class="mt-5">
+                            <textarea class="form-control" placeholder="Message"></textarea>
+                        </div>
+                        <div class="mt-5">
+                            <button class="btn btn-warning" type="submit">
+                                send
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+</div>
