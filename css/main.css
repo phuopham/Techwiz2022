@@ -12,6 +12,9 @@
 
 body{
     font-family: gotham;
+    background-image: url("../images/hero-bg.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 .form-control {

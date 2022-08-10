@@ -23,6 +23,12 @@ app.config(function ($routeProvider) {
 
 // Config
 app.controller("loginController", function ($scope, $location, $http) {
+    $scope.scrolllogin = function(event){
+        event.preventDefault();
+        const element = document.getElementById("loginform");
+        console.log(element);
+        element.scrollIntoView();
+    }
     $scope.errMessage = "";
     $scope.handleLogin = function () {
         $http({
