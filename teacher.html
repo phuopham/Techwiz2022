@@ -3,7 +3,7 @@
         <div>
             <a class="navbar-brand text-weight-bold" href="index.html">
                 <span>
-                    Hello :  {{teachername}}
+                    Hello : {{list[0].teachername}}
                 </span>
             </a>
         </div>
@@ -101,8 +101,8 @@
                     {{student.name}}
                 </div>
                 <div class="progress" style="height: 20px;">
-                    <div class="progress-bar bg-warning" role="progressbar" style="width: {{student.progress}}% ; "
-                        aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                    <div class="progress-bar bg-warning" role="progressbar" style="width: 60% ; " aria-valuenow="25"
+                        aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
                 <div class="text-center">{{student.progress}}</div>
             </div>
@@ -176,16 +176,60 @@
     </div>
 </div>
 
-
+<div class="container my-5" id="feedback">
+    <div class="d-flex justify-content-center d-md-block mb-3">
+        <h2>
+            Feedback
+        </h2>
+    </div>
+    <div>
+        <table class="table">
+            <tr class="table-warning">
+                <td>From</td>
+                <td>Title</td>
+                <td>Content</td>
+                <td>Reply/Delete</td>
+            </tr>
+            <tbody>
+                <tr>
+                    <td>Tran Duy Anh</td>
+                    <td>Làm ăn thế hả</td>
+                    <td>Tối gặp tao ở cổng trường</td>
+                    <td class="d-flex justify-content-center">
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                            <i class="bi bi-reply"></i>
+                        </button>
+                        <button class="btn btn-danger">
+                            <i class="bi bi-trash3"></i>
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Nguyen Manh Nam</td>
+                    <td>Chuyện gì thế em</td>
+                    <td>Anh Duy Anh sao lại muốn chém em thế?</td>
+                    <td class="d-flex justify-content-center">
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                            <i class="bi bi-reply"></i>
+                        </button>
+                        <button class="btn btn-danger">
+                            <i class="bi bi-trash3"></i>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
 
 <!-- feedback -->
-<div class="container my-5" id="feedback">
+<div class="container my-5">
 
     <div class="row">
         <div class="col-md-6">
             <div class="d-flex justify-content-center d-md-block">
                 <h2>
-                    Feedback
+                    Send a feedback
                 </h2>
             </div>
             <form action="" class="form-group">
