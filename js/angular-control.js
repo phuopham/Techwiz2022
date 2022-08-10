@@ -117,7 +117,10 @@ app.controller("loginController", function ($scope, $location, $http) {
     };
 });
 
-app.controller("studentController", function ($scope, $location , $http) {
+app.controller("studentController", function ($scope, $location , $http, $window) {
+    /**
+     * Block Client Access with Log in
+     */
     if (!localStorage['user']) {
         $location.path('/');
     };
@@ -148,9 +151,20 @@ app.controller("studentController", function ($scope, $location , $http) {
 
         });
     
+    /**
+     * Handle Logout Function by clear localStorage
+     */
+    $scope.handleLogout = function() {
+        $window.localStorage.clear();
+        $window.location.reload();
+    };
+    
 });
 
-app.controller("teacherController", function ($scope, $location, $http) {
+app.controller("teacherController", function ($scope, $location, $http, $window) {
+    /**
+     * Block Client Access with Log in
+     */
     if (!localStorage['user']) {
         $location.path('/');
     };
@@ -196,12 +210,31 @@ app.controller("teacherController", function ($scope, $location, $http) {
     $scope.del = function (index) {
         $scope.list.splice(index,1);
     }
+
+    /**
+     * Handle Logout Function by clear localStorage
+     */
+     $scope.handleLogout = function() {
+        $window.localStorage.clear();
+        $window.location.reload();
+    };
 });
 
-app.controller("parentController", function ($scope, $location) {
+app.controller("parentController", function ($scope, $location, $window) {
+    /**
+     * Block Client Access with Log in
+     */
     if (!localStorage['user']) {
         $location.path('/');
     };
+
+    /**
+     * Handle Logout Function by clear localStorage
+     */
+     $scope.handleLogout = function() {
+        $window.localStorage.clear();
+        $window.location.reload();
+    };    
 });
 
 app.directive('header', function () {
