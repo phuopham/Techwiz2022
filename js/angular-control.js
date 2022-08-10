@@ -103,16 +103,22 @@ app.controller("loginController", function ($scope, $location, $http) {
     };
 });
 
-app.controller("studentController", function ($scope) {
-    
+app.controller("studentController", function ($scope, $location) {
+    if(!localStorage['user']){
+        $location.path('/');
+    };
 });
 
-app.controller("teacherController", function ($scope) {
-
+app.controller("teacherController", function ($scope, $location) {
+    if(!localStorage['user']){
+        $location.path('/');
+    };
 });
 
-app.controller("parentController", function ($scope) {
-
+app.controller("parentController", function ($scope, $location) {
+    if(!localStorage['user']){
+        $location.path('/');
+    };
 });
 
 app.directive('header', function () {
