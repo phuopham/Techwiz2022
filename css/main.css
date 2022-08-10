@@ -37,6 +37,11 @@ body {
     border-bottom: 3px solid #ffca2c !important;
 }
 
+.form-check-input:checked {
+    background-color: #ffca2c;
+    border-color: #ffca2c;
+}
+
 /*--------------------------------------------------------------
 # Navigation Menu
 --------------------------------------------------------------*/
