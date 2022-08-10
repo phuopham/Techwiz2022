@@ -176,6 +176,7 @@ app.controller("teacherController", function ($scope, $location, $http, $window)
             var length = $scope.liststudent.length;
             // get data localstorage
             var check = JSON.parse(window.localStorage.getItem('user'));
+            $scope.teachername = check['teachername'];
             // new list
             $scope.list = [];
             for (i = 0; i < length; i++) {
