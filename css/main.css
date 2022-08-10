@@ -23,26 +23,26 @@ body {
 /*--------------------------------------------------------------
 # Edit bootstrap Class
 --------------------------------------------------------------*/
-.form-control {
+.lp-input-text {
     border: none !important;
     border-bottom: 1px solid #ced4da !important;
     box-shadow: none !important;
 }
 
-.form-control:hover {
+.lp-input-text:hover {
     border-bottom: 1px solid #222 !important;
 }
 
-.form-control:focus {
+.lp-input-text:focus {
     border-bottom: 3px solid #ffca2c !important;
 }
 
-.form-check-input:checked {
+.lp-input-radio:checked {
     background-color: #ffca2c !important;
     border-color: #ffca2c !important;
 }
 
-.form-check-input:focus {
+.lp-input-radio:focus {
     box-shadow: none !important;
 }
 
