@@ -1,5 +1,6 @@
-{
-    "Nguyen Hoang Nam": {
+[
+    {
+        "name": "Nguyen Hoang Nam",
         "mark": {
             "math": 10,
             "physic": 7,
@@ -9,7 +10,8 @@
         "progress": "60",
         "teachername": "Le Kim Tung"
     },
-    "Nguyen Phuong": {
+    {
+        "name": "Nguyen Hoang A",
         "mark": {
             "math": 5,
             "physic": 7,
@@ -19,7 +21,8 @@
         "progress": "80",
         "teachername": "Le Kim Tung"
     },
-    "Nguyen Hoang": {
+    {
+        "name": "Nguyen Hoang V",
         "mark": {
             "math": 6,
             "physic": 8,
@@ -29,7 +32,8 @@
         "progress": "30",
         "teachername": "Tran Duy Anh"
     },
-    "Nguyen Ba Nam": {
+    {
+        "name": "Nguyen Hoang S",
         "mark": {
             "math": 9,
             "physic": 5,
@@ -39,4 +43,4 @@
         "progress": "50",
         "teachername": "Tran Duy Anh"
     }
-}
+]

@@ -22,12 +22,12 @@ app.config(function ($routeProvider) {
 });
 
 // Config
-app.controller("loginController", function ($scope, $location,$http) {
+app.controller("loginController", function ($scope, $location, $http) {
     $scope.errMessage = "";
     $scope.handleLogin = function () {
         $http({
             method: 'GET',
-            url: '/json/students.json',
+            url: './json/students.json',
             headers: {
                 'Content-Type': 'application/json'
             } // optional
@@ -36,32 +36,43 @@ app.controller("loginController", function ($scope, $location,$http) {
                 function (success) {
                     console.log(success);
                     // do something when success
+                    // console.log(success.data);
+                    console.log($scope.type);
+                    switch ($scope.type) {
+                        case 1:
+                            // get data from json
+                            if (Array.isArray(success.data)) {
+                                success.data.forEach(element => {
+                                    if ($scope.name == element.name) {
+                                        alert("khop");
+                                        // alert("Login Success!\nRedirecting to the next page...");
+                                        // $location.path('/student');
+                                    } else {
+                                        alert("khong khop");
+                                    };
+                                });
+                            };
+                            break;
+                        case 2:
+                            alert("Login Success!\nRedirecting to the next page...");
+                            $location.path('/teacher');
+                            break;
+                        case 3:
+                            alert("Login Success!\nRedirecting to the next page...");
+                            $location.path('/parent');
+                            break;
+                    };
+                    // if ($scope.name == "nam") {
+
+                    // } else {
+                    //     alert("Login Fail!\nInvalid studentname or id");
+                    // };
                 },
                 function (error) {
                     // do something when error
                 }
             );
-        if ($scope.name == "nam") {
-            console.log($scope.type);
-
-            switch ($scope.type) {
-                case '1':
-                // get data from json
-
-                // alert("Login Success!\nRedirecting to the next page...");
-                // $location.path('/student');
-                case '2':
-                    alert("Login Success!\nRedirecting to the next page...");
-                    $location.path('/teacher');
-                case '3':
-                    alert("Login Success!\nRedirecting to the next page...");
-                    $location.path('/parent');
-            };
-
-        } else {
-            alert("Login Fail!\nInvalid studentname or id");
-        };
-    }
+    };
 });
 
 app.controller("studentController", function ($scope) {
