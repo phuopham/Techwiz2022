@@ -1,0 +1,26 @@
+[
+    {
+        "from": "Tran Danh Tu",
+        "to": "Tran Duy Anh",
+        "title": "You are good at math",
+        "message": "Please work hard on Physic"
+    },
+    {
+        "from": "Le Kim Tung",
+        "to": "Tran Duy Anh",
+        "title": "You are so good at math",
+        "message": "Help your friends"
+    },
+    {
+        "from": "Tran Duy Anh",
+        "to": "Le Kim Tung",
+        "title": "You are not good at math",
+        "message": "Please work hard"
+    },
+    {
+        "from": "Nguyen Hoang Nam",
+        "to": "Le Kim Tung",
+        "title": "You are good at physic",
+        "message": "Please help Nguyen Van A on exercise 5"
+    }
+]
