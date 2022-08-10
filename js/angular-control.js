@@ -117,7 +117,10 @@ app.controller("loginController", function ($scope, $location, $http) {
     };
 });
 
-app.controller("studentController", function ($scope, $location , $http) {
+app.controller("studentController", function ($scope, $location , $http, $window) {
+    /**
+     * Block Client Access with Log in
+     */
     if (!localStorage['user']) {
         $location.path('/');
     };
@@ -148,9 +151,20 @@ app.controller("studentController", function ($scope, $location , $http) {
 
         });
     
+    /**
+     * Handle Logout Function by clear localStorage
+     */
+    $scope.handleLogout = function() {
+        $window.localStorage.clear();
+        $window.location.reload();
+    };
+    
 });
 
-app.controller("teacherController", function ($scope, $location, $http) {
+app.controller("teacherController", function ($scope, $location, $http, $window) {
+    /**
+     * Block Client Access with Log in
+     */
     if (!localStorage['user']) {
         $location.path('/');
     };
@@ -196,18 +210,76 @@ app.controller("teacherController", function ($scope, $location, $http) {
     $scope.del = function (index) {
         $scope.list.splice(index,1);
     }
+
+    /**
+     * Handle Logout Function by clear localStorage
+     */
+     $scope.handleLogout = function() {
+        $window.localStorage.clear();
+        $window.location.reload();
+    };
 });
 
-app.controller("parentController", function ($scope, $location) {
+app.controller("parentController", function ($scope, $location, $window) {
+    /**
+     * Block Client Access with Log in
+     */
     if (!localStorage['user']) {
         $location.path('/');
     };
+
+    /**
+     * Handle Logout Function by clear localStorage
+     */
+     $scope.handleLogout = function() {
+        $window.localStorage.clear();
+        $window.location.reload();
+    };    
 });
 
 app.directive('header', function () {
     return {
         restrict: 'EAC',
-        templateUrl: 'header.html'
+        templateUrl: 'header.html',
+
+        link: function () {
+            "use strict";
+        
+            /**
+             * Easy selector helper function
+             */
+            const select = (el, all = false) => {
+                el = el.trim();
+                if (all) {
+                    return [...document.querySelectorAll(el)];
+                } else {
+                    return document.querySelector(el);
+                }
+            }
+        
+            /**
+             * Easy event listener function
+             */
+            const on = (type, el, listener, all = false) => {
+                let selectEl = select(el, all);
+                if (selectEl) {
+                    if (all) {
+                        selectEl.forEach(e => e.addEventListener(type, listener));
+                    } else {
+                        selectEl.addEventListener(type, listener);
+                    }
+                }
+            }
+            
+            /**
+             * Mobile nav toggle
+             */
+            on('click', '.mobile-nav-toggle', function (e) {
+                select('#navbar').classList.toggle('navbar-mobile');
+                this.classList.toggle('bi-list');
+                this.classList.toggle('bi-x');
+            });
+        }
     };
 });
 
