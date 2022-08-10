@@ -134,7 +134,7 @@ app.controller("studentController", function ($scope, $location , $http, $window
             lst_sbuject_name.forEach(function(elm,index){
                 $scope.lst_subject.push({'name': elm, 'mark': lst_sbuject_mark[index]});
             });
-            
+            $scope.name = $scope.student['name'];
             $scope.progress = $scope.student['progress'];
     $http.get("json/revclass.json")
         .then(function (res) {
