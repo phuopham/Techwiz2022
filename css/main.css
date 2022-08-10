@@ -155,3 +155,14 @@ body {
 .navbar-mobile .getstarted:focus {
     margin: 15px;
 }
+
+.flex-wrapper {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+.foot {
+    margin-top: auto;
+}
