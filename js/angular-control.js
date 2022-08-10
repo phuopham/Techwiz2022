@@ -127,3 +127,10 @@ app.directive('header', function () {
         templateUrl: 'header.html'
     };
 });
+
+app.directive('footer', function () {
+    return {
+        restrict: 'EAC',
+        templateUrl: 'footer.html'
+    };
+});
