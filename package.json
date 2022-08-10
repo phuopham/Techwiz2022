@@ -1,0 +1,13 @@
+{
+  "name": "eStudiez",
+  "version": "1.0.0",
+  "description": "eStudiez project for Techwiz@2022",
+  "main": "index.js",
+  "scripts": {
+    "open-my-html": "open /index.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "open": "^7.3.0"
+  }
+}
