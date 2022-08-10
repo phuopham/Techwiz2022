@@ -112,10 +112,24 @@ app.controller("studentController", function ($scope, $location) {
     };
 });
 
-app.controller("teacherController", function ($scope, $location) {
+app.controller("teacherController", function ($scope, $location , $http) {
     if(!localStorage['user']){
         $location.path('/');
     };
+    $http.get("json/students.json")
+        .then(function(res){
+            $scope.liststudent = res.data ;
+            var length = $scope.liststudent.length ;
+            console.log(length);
+            var check = JSON.parse(window.localStorage.getItem('user'));
+            console.log(check['teachername']);
+            $scope.list = [] ;
+            for(i=0 ; i < length ; i++){
+                if($scope.liststudent[i]['teachername'] == check['teachername']){
+                    $scope.list[i] = $scope.liststudent[i] ;
+                }
+            }
+        });
 });
 
 app.controller("parentController", function ($scope, $location) {
