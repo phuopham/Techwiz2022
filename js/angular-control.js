@@ -27,7 +27,7 @@ app.controller("loginController", function ($scope, $location, $http) {
     $scope.handleLogin = function () {
         $http({
             method: 'GET',
-            url: '/json/students.json',
+            url: './json/students.json',
             headers: {
                 'Content-Type': 'application/json'
             } // optional
@@ -36,43 +36,82 @@ app.controller("loginController", function ($scope, $location, $http) {
                 function (success) {
                     console.log(success);
                     // do something when success
+                    // console.log(success.data);
+                    console.log($scope.type);
+                    let caseErr = true;
+                    switch ($scope.type) {
+                        case 1:
+                            // get data from json
+                            if (Array.isArray(success.data)) {
+                                for(i = 0; i < success.data.length; i++) {
+                                    if ($scope.name == (success.data[i]).name) {
+                                        localStorage.setItem('user', JSON.stringify(success.data[i]));
+                                        alert("Login Success!\nRedirecting to the next page...");
+                                        $location.path('/student');
+                                        break;
+                                    } else {
+                                        caseErr = false;
+                                    };
+                                };
+                            }; 
+                            if(caseErr == false) {
+                                alert("khong khop");
+                            };
+                            break;
+                        case 2:
+                            // get data from json
+                            if (Array.isArray(success.data)) {
+                                for(i = 0; i < success.data.length; i++) {
+                                    if ($scope.name == (success.data[i]).teachername) {
+                                        localStorage.setItem('user', JSON.stringify(success.data[i]));
+                                        alert("Login Success!\nRedirecting to the next page...");
+                                        $location.path('/teacher');
+                                        break;
+                                    } else {
+                                        caseErr = false;
+                                    };
+                                };
+                            }; 
+                            if(caseErr == false) {
+                                alert("khong khop");
+                            };
+                            break;
+                        case 3:
+                            // get data from json
+                            if (Array.isArray(success.data)) {
+                                for(i = 0; i < success.data.length; i++) {
+                                    if ($scope.name == (success.data[i]).parents) {
+                                        localStorage.setItem('user', JSON.stringify(success.data[i]));
+                                        alert("Login Success!\nRedirecting to the next page...");
+                                        $location.path('/parent');
+                                        break;
+                                    } else {
+                                        caseErr = false;
+                                    };
+                                };
+                            }; 
+                            if(caseErr == false) {
+                                alert("khong khop");
+                            };
+                            break;
+                    };
                 },
                 function (error) {
                     // do something when error
                 }
             );
-        if ($scope.name == "nam") {
-            console.log($scope.type);
-
-            switch ($scope.type) {
-                case '1':
-                // get data from json
-
-                // alert("Login Success!\nRedirecting to the next page...");
-                // $location.path('/student');
-                case '2':
-                    alert("Login Success!\nRedirecting to the next page...");
-                    $location.path('/teacher');
-                case '3':
-                    alert("Login Success!\nRedirecting to the next page...");
-                    $location.path('/parent');
-            };
-
-        } else {
-            alert("Login Fail!\nInvalid studentname or id");
-        };
-    }
+    };
 });
 
 app.controller("studentController", function ($scope) {
+    
+});
+
+app.controller("teacherController", function ($scope) {
 
 });
 
-app.controller("studentController", function ($scope) {
-
-});
-
-app.controller("studentController", function ($scope) {
+app.controller("parentController", function ($scope) {
 
 });
 
