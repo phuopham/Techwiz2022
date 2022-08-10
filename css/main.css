@@ -3,6 +3,19 @@
     border-bottom: 1px solid #ced4da !important;
 }
 
-.form-control:focus {
-    
+
+@font-face {
+    font-family: gotham;
+    font-weight: 400;
+    src: url(../assets/fonts/GothamRnd-Book.woff);
+}
+
+@font-face {
+    font-family: gotham;
+    font-weight: 700;
+    src: url(../assets/fonts/GothamRnd-Bold_0.woff);
+}
+
+body{
+    font-family: gotham;
 }

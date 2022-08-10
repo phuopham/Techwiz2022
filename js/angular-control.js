@@ -22,7 +22,7 @@ app.config(function ($routeProvider) {
 });
 
 // Config
-app.controller("loginController", function ($scope, $location,$http) {
+app.controller("loginController", function ($scope, $location, $http) {
     $scope.errMessage = "";
     $scope.handleLogin = function () {
         $http({
@@ -74,4 +74,11 @@ app.controller("studentController", function ($scope) {
 
 app.controller("studentController", function ($scope) {
 
+});
+
+app.directive('header', function () {
+    return {
+        restrict: 'EAC',
+        templateUrl: 'header.html'
+    };
 });
