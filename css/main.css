@@ -38,8 +38,12 @@ body {
 }
 
 .form-check-input:checked {
-    background-color: #ffca2c;
-    border-color: #ffca2c;
+    background-color: #ffca2c !important;
+    border-color: #ffca2c !important;
+}
+
+.form-check-input:focus {
+    box-shadow: none !important;
 }
 
 /*--------------------------------------------------------------
@@ -60,16 +64,12 @@ body {
     align-items: center;
 }
 
-.navbar li {
-    position: relative;
-}
-
 .navbar a,
 .navbar a:focus {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px 0 10px 30px;
+    padding: 10px 20px;
     color: #000;
     white-space: nowrap;
     transition: 0.3s;
@@ -87,7 +87,7 @@ body {
 .navbar .active,
 .navbar .active:focus,
 .navbar li:hover>a {
-    text-decoration: underline;
+    background-color: #fff;
 }
 
 /**
@@ -153,7 +153,7 @@ body {
 .navbar-mobile a:hover,
 .navbar-mobile .active,
 .navbar-mobile li:hover>a {
-    text-decoration: underline;
+    background-color: #ffca2c;
 }
 
 .navbar-mobile .getstarted,
@@ -166,7 +166,7 @@ body {
     min-height: 100vh;
     flex-direction: column;
     justify-content: space-between;
-  }
+}
 
 .foot {
     margin-top: auto;
