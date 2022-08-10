@@ -1,0 +1,50 @@
+[
+    {
+        "id": "1",
+        "name": "Nguyen Hoang Nam",
+        "mark": {
+            "math": 10,
+            "physic": 7,
+            "chemist": 6
+        },
+        "parents": "Tran Duy Anh",
+        "progress": "60",
+        "teachername": "Le Kim Tung"
+    },
+    {
+        "id": "2",
+        "name": "Nguyen Phuong",
+        "mark": {
+            "math": 5,
+            "physic": 7,
+            "chemist": 8
+        },
+        "parents": "Tran Toan",
+        "progress": "80",
+        "teachername": "Le Kim Tung"
+    },
+    {
+        "id": "1",
+        "name": "Nguyen Hoang Nam",
+        "mark": {
+            "math": 6,
+            "physic": 8,
+            "chemist": 8
+        },
+        "parents": "Le Kim Tung",
+        "progress": "30",
+        "teachername": "Tran Duy Anh"
+    },
+    {
+        "id": "1",
+        "name": "Nguyen Hoang Nam",
+        "mark": {
+            "math": 9,
+            "physic": 5,
+            "chemist": 7
+        },
+        "parents": "Tran Duc",
+        "progress": "50",
+        "teachername": "Tran Duy Anh"
+    }
+]
