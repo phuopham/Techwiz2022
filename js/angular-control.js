@@ -118,17 +118,22 @@ app.controller("teacherController", function ($scope, $location , $http) {
     };
     $http.get("json/students.json")
         .then(function(res){
+            // all data 
             $scope.liststudent = res.data ;
+            // length data
             var length = $scope.liststudent.length ;
             console.log(length);
+            // get data localstorage
             var check = JSON.parse(window.localStorage.getItem('user'));
             console.log(check['teachername']);
+            // new list
             $scope.list = [] ;
             for(i=0 ; i < length ; i++){
-                if($scope.liststudent[i]['teachername'] == check['teachername']){
+                if($scope.liststudent[i]['teachername'] === check['teachername']){
                     $scope.list[i] = $scope.liststudent[i] ;
                 }
             }
+            console.log($scope.list);
         });
 });
 
