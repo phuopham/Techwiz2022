@@ -36,12 +36,48 @@
 </head>
 
 <body ng-app="myApp">
+  <nav class="navbar navbar-expand-lg navbar-light bg-warning p-0">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+      <div class="d-flex align-items-center">
+        <a class="navbar-brand p-2" href="#">
+          <img class="mr-2" src="images/logo.png" style="max-height: 35px;" alt="">
+          <p class="d-inline fw-bold"> eStudies</p>
+        </a>
+      </div>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item highlight highlighted" onclick='{
+            $(".highlighted").removeClass("highlighted")
+            this.classList.add("highlighted")
+          }'>
+            <a class="nav-link" href="#!">Home</a>
+          </li>
+          <li class="nav-item highlight " onclick='{
+            $(".highlighted").removeClass("highlighted")
+            this.classList.add("highlighted")
+          }'>
+            <a class="nav-link" href="#!/about">About</a>
+          </li>
+          <li class="nav-item highlight" onclick='{
+            $(".highlighted").removeClass("highlighted")
+            this.classList.add("highlighted")
+          }'>
+            <a class="nav-link" href="#!/contact">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    </div>
+  </nav>
 
   <!-- Template AngularJS -->
-  <div class="flex-wrapper">
-    <div class="header"></div>
-    <div ng-view></div>
-    <div class="footer"></div>
+  <!-- break -->
+  <div ng-view></div>
+  <div class="footer"></div>
   </div>
   <div class="clock fixed-bottom rounded ms-5 px-2" style="right:auto; opacity:70%;">
     <div id="Date" class="text-align-left fw-bold"></div>
@@ -99,9 +135,8 @@
         $("#hours").html((hours < 10 ? "0" : "") + hours);
       }, 1000);
     });
-  </script>
 
-  <!-- clock end -->
+  </script>
 
   <!-- Add AnglarJS Control Main File -->
   <script src="./js/angular-control.js"></script>
