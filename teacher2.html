@@ -1,0 +1,84 @@
+<div>
+    <table class="table table-bordered">
+        <thead>
+            <tr class="text-center">
+                <th>Name</th>
+                <th>Mark.Math</th>
+                <th>Mark.Physic</th>
+                <th>Mark.Chemist</th>
+                <th>Parents</th>
+                <th>Progress</th>
+                <th>Teacher Name</th>
+                <th>Update</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="text-center" ng-repeat="student in list">
+                <td>{{student.name}}</td>
+                <td>{{student.mark.math}}</td>
+                <td>{{student.mark.physic}}</td>
+                <td>{{student.mark.chemist}}</td>
+                <td>{{student.parents}}</td>
+                <td>{{student.progress}}</td>
+                <td>{{student.teachername}}</td>
+                <td>
+                    <button type="button" class="btn btn-primary" data-toggle="modal"
+                        data-target="#exampleModal" ng-click="edit($index)">Edit</button>
+                    <button class="btn btn-danger" ng-click="del($index)">Del</button>
+                </td>
+            </tr>
+        </tbody>
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Edit student</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    </form method="get">
+                    <div class="modal-body">
+
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input class="form-control" type="text" ng-model="name">
+                            <input type="text" ng-model="index" hidden>
+                        </div>
+                        <div>
+                            <label>Mark-Math</label>
+                            <input class="form-control" type="text" ng-model="math">
+                        </div>
+                        <div>
+                            <label>Mark-Physic</label>
+                            <input class="form-control" type="text" ng-model="physic">
+                        </div>
+                        <div>
+                            <label>Mark-Chemist</label>
+                            <input class="form-control" type="text" ng-model="chemist">
+                        </div>
+                        <div>
+                            <label>Parents</label>
+                            <input class="form-control" type="text" ng-model="parents">
+                        </div>
+                        <div>
+                            <label>Progress</label>
+                            <input class="form-control" type="text" ng-model="progress">
+                        </div>
+                        <div>
+                            <label>Teacher Name</label>
+                            <input class="form-control" type="text" ng-model="teachername">
+                        </div>
+
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" ng-click="save()" class="btn btn-primary close" data-dismiss="modal" aria-label="Close">Save changes</button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </table>

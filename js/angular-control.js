@@ -117,10 +117,37 @@ app.controller("loginController", function ($scope, $location, $http) {
     };
 });
 
-app.controller("studentController", function ($scope, $location) {
+app.controller("studentController", function ($scope, $location , $http) {
     if (!localStorage['user']) {
         $location.path('/');
     };
+            $scope.student = JSON.parse(window.localStorage.getItem('user'));
+            let lst_mark_obj = $scope.student.mark;
+            
+            let lst_sbuject_name = Object.keys(lst_mark_obj);
+            let lst_sbuject_mark = Object.values(lst_mark_obj);
+            
+            $scope.lst_subject = [];
+            lst_sbuject_name.forEach(function(elm,index){
+                $scope.lst_subject.push({'name': elm, 'mark': lst_sbuject_mark[index]});
+            });
+            
+            $scope.progress = $scope.student['progress'];
+    $http.get("json/revclass.json")
+        .then(function (res) {
+            $scope.revclass = res.data;
+            $scope.teacher_revclass = $scope.student['teachername'];
+
+            $scope.student_revclass = [] ;
+            var length_revclass = $scope.revclass.length
+            for(i = 0 ; i < length_revclass ; i++){
+                if($scope.revclass[i]['teacher'] == $scope.teacher_revclass){
+                    $scope.student_revclass.push($scope.revclass[i]['studentname']);
+                }
+            }
+
+        });
+    
 });
 
 app.controller("teacherController", function ($scope, $location, $http) {
