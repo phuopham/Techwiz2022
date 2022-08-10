@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js"></script>
+</head>
+<body ng-app="myApp">
+    <div ng-controller="myController">
+        <table border="1"> 
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Mark.Math</th>
+                    <th>Mark.Physic</th>
+                    <th>Mark.Chemist</th>
+                    <th>Parent</th>
+                    <th>Progress</th>
+                    <th>TeacherName</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="student in list">
+                    <td>{{student.name}}</td>
+                    <td>{{student.mark.physic}}</td>
+                    <td>{{student.mark.chemist}}</td>
+                    <td>{{student.mark.math}}</td>
+                    <td>{{student.parents}}</td>
+                    <td>{{student.progress}}</td>
+                    <td>{{student.teachername}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+<script>
+    var myApp = angular.module('myApp' , []);
+    myApp.controller('myController' , function($scope , $http){
+        $http.get("json/students.json")
+        .then(function(res){
+            $scope.liststudent = res.data ;
+            var length = $scope.liststudent.length ;
+            $scope.list = [] ;
+            for(i = 0 ; i < length ; i++ ){
+                if($scope.liststudent[i]['teachername'] == "getIteam('user')"){
+                    console.log($scope.liststudent[i]);
+                    $scope.list[i] = $scope.liststudent[i] ;
+                }
+            }
+            
+        });
+        
+    });
+</script>
+</html>
