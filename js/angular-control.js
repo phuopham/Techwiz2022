@@ -36,8 +36,6 @@ app.controller("loginController", function ($scope, $location, $http) {
                 function (success) {
                     console.log(success);
                     // do something when success
-                    // console.log(success.data);
-                    console.log($scope.type);
                     let caseErr = true;
                     switch ($scope.type) {
                         case 1:
