@@ -37,6 +37,11 @@ body {
     border-bottom: 3px solid #ffca2c !important;
 }
 
+.form-check-input:checked {
+    background-color: #ffca2c;
+    border-color: #ffca2c;
+}
+
 /*--------------------------------------------------------------
 # Navigation Menu
 --------------------------------------------------------------*/
@@ -154,4 +159,15 @@ body {
 .navbar-mobile .getstarted,
 .navbar-mobile .getstarted:focus {
     margin: 15px;
+}
+
+.flex-wrapper {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+.foot {
+    margin-top: auto;
 }

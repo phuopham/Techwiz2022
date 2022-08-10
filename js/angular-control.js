@@ -18,6 +18,14 @@ app.config(function ($routeProvider) {
         .when('/parent', {
             templateUrl: 'parent.html',
             controller: "parentController",
+        })
+        .when('/about', {
+            templateUrl: 'about.html',
+            controller: "",
+        })
+        .when('/contact', {
+            templateUrl: 'contact.html',
+            controller: "",
         });
 });
 
