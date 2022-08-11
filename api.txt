@@ -1,1 +1,0 @@
-https://api.mapbox.com/geocoding/v5/mapbox.places/105.8192029,21.0230244.json?access_token=pk.eyJ1IjoidG9hbjEwOTIxIiwiYSI6ImNrdmFwcnBqejh5a24ydXBodTQybXRmd2cifQ.2ocVV4lm0IPJLfslaOEFUQ
