@@ -132,3 +132,7 @@ body {
 .foot {
     margin-top: auto;
 }
+
+img{
+    width: 100% !important;
+}
