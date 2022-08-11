@@ -22,39 +22,43 @@
                         <td>Math</td>
                         <td>Physic</td>
                         <td>Chemist</td>
-                        <td colspan="2">Update/Delete</td>
+                        <td>Update</td>
+                        <td>Delete</td>
                     </tr>
-                    <tbody ng-repeat="student in list">
-                        <tr>
-                            <td class="text-nowrap">{{student.name}}</td>
-                            <td>{{student.mark.math}}</td>
-                            <td>{{student.mark.physic}}</td>
-                            <td>{{student.mark.chemist}}</td>
-                            <td class="d-flex justify-content-center">
-                                <button type="button" class="btn btn-primary" data-toggle="modal"
-                                    data-target="#exampleModal" ng-click="edit($index)">
-                                    <i class="bi bi-pencil-square"></i>
-                                </button>
-                                <button class="btn btn-danger" ng-click="del($index)">
-                                    <i class="bi bi-trash3"></i>
-                                </button>
-                            </td>
-                        </tr>
-                    </tbody>
+
+                    <tr ng-repeat="student in list">
+                        <td class="text-nowrap">{{student.name}}</td>
+                        <td>{{student.mark.math}}</td>
+                        <td>{{student.mark.physic}}</td>
+                        <td>{{student.mark.chemist}}</td>
+                        <td class="justify-content-center">
+                            <button type="button" class="btn btn-primary" data-toggle="modal"
+                                data-target="#exampleModal" ng-click="edit($index)">
+                                <i class="bi bi-pencil-square"></i>
+                            </button>
+                        </td>
+                        <td>
+                            <button class="btn btn-danger" ng-click="del($index)">
+                                <i class="bi bi-trash3"></i>
+                            </button>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td><input type="text" class="form-control" placeholder="Name" ng-model="addname"></td>
+                        <td><input type="number" class="form-control" placeholder="Mark" ng-model="addmath"></td>
+                        <td><input type="number" class="form-control" placeholder="Mark" ng-model="addphysic"></td>
+                        <td><input type="number" class="form-control" placeholder="Mark" ng-model="addchemist"></td>
+                        <td><input type="number" class="form-control" placeholder="Progress" ng-model="addprogress">
+                        </td>
+                        <td><button class="btn btn-warning form-control" type="submit" ng-click="add()">
+                                <i class="bi bi-person-plus"></i>
+                            </button></td>
+                    </tr>
                 </table>
                 <div class="d-flex">
                     <tfoot>
-                        <tr>
-                            <td><input type="text" class="form-control" placeholder="Name" ng-model="addname"></td>
-                            <td><input type="number" class="form-control" placeholder="Mark" ng-model="addmath"></td>
-                            <td><input type="number" class="form-control" placeholder="Mark" ng-model="addphysic"></td>
-                            <td><input type="number" class="form-control" placeholder="Mark" ng-model="addchemist"></td>
-                            <td><input type="number" class="form-control" placeholder="Progress" ng-model="addprogress">
-                            </td>
-                            <td><button class="btn btn-warning form-control" type="submit" ng-click="add()">
-                                    <i class="bi bi-person-plus"></i>
-                                </button></td>
-                        </tr>
+
                     </tfoot>
                 </div>
             </form>
