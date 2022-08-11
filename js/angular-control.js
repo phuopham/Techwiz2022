@@ -170,7 +170,7 @@ app.controller("studentController", function ($scope, $location, $http, $window)
      */
     $scope.handleLogout = function () {
         $window.localStorage.clear();
-        $window.location.reload();
+        $location.path('/');
     };
 
 });
@@ -245,7 +245,7 @@ app.controller("teacherController", function ($scope, $location, $http, $window)
      */
     $scope.handleLogout = function () {
         $window.localStorage.clear();
-        $window.location.reload();
+        $location.path('/');
     };
 });
 
@@ -262,6 +262,6 @@ app.controller("parentController", function ($scope, $location, $window) {
      */
     $scope.handleLogout = function () {
         $window.localStorage.clear();
-        $window.location.reload();
+        $location.path('/');
     };
 });
