@@ -150,9 +150,6 @@ app.controller("studentController", function ($scope, $location , $http, $window
                     $scope.time_revclass.push($scope.revclass[i]['time']);
                 }
             }
-            console.log($scope.time_revclass)
-            console.log($scope.student_revclass)
-
         });
     
     /**
@@ -240,11 +237,4 @@ app.controller("parentController", function ($scope, $location, $window) {
         $window.localStorage.clear();
         $window.location.reload();
     };    
-});
-
-app.directive('footer', function () {
-    return {
-        restrict: 'EAC',
-        templateUrl: 'footer.html'
-    };
 });
