@@ -25,12 +25,12 @@ body {
 --------------------------------------------------------------*/
 .lp-input-text {
     border: none !important;
-    border-bottom: 1px solid #ced4da !important;
+    border-bottom: 1px solid #e1e1e1 !important;
     box-shadow: none !important;
 }
 
 .lp-input-text:hover {
-    border-bottom: 1px solid #222 !important;
+    border-bottom: 1px solid #162d3d !important;
 }
 
 .lp-input-text:focus {
