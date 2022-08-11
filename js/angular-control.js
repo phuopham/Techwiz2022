@@ -210,11 +210,16 @@ app.controller("teacherController", function ($scope, $location, $http, $window)
                 $scope.listname.push($scope.list[i]['name']);
             }
             for(i = 0 ; i < $scope.list.length ; i++){
+                $scope.listname.push($scope.list[i]['parents']);
+            }
+            for(i = 0 ; i < $scope.list.length+$scope.list.length ; i++){
                 if(JSON.parse(window.localStorage.getItem($scope.listname[i])) != null){
                     $scope.feedback.push(JSON.parse(window.localStorage.getItem($scope.listname[i])));
                 }
             }
+            console.log($scope.listname)
             console.log($scope.feedback)
+            
         });
 
     $scope.edit = function (index) {
@@ -259,6 +264,41 @@ app.controller("parentController", function ($scope, $location, $window) {
     if (!localStorage['user']) {
         $location.path('/');
     };
+
+    
+    $scope.studentLC = JSON.parse(window.localStorage.getItem('user'));
+    $scope.student = $scope.studentLC['name'] ;
+    $scope.parent = $scope.studentLC['parents'];
+    let lst_mark_obj = $scope.studentLC.mark;
+
+    let lst_sbuject_name = Object.keys(lst_mark_obj);
+    let lst_sbuject_mark = Object.values(lst_mark_obj);
+
+    $scope.lst_subject = [];
+    lst_sbuject_name.forEach(function (elm, index) {
+        $scope.lst_subject.push({ 'name': elm, 'mark': lst_sbuject_mark[index] });
+    });
+
+    $scope.progress = $scope.studentLC['progress'];
+
+    $scope.feedback = function() {
+        $scope.feedbackofST = {
+            "nameST" : $scope.studentLC['parents'] , 
+            "nameTC" : $scope.studentLC['teachername'] ,
+            "title" : $scope.title ,
+            "mess" : $scope.mess
+        }
+        localStorage.setItem($scope.parent , JSON.stringify($scope.feedbackofST));
+    };
+    $scope.feedbacks = [] ;
+    $scope.feedbackLC = JSON.parse(window.localStorage.getItem($scope.parent));
+    if($scope.feedbackLC != null){
+        $scope.feedbacks.push($scope.feedbackLC)
+    }
+    console.log($scope.feedbacks);
+
+
+
 
     /**
      * Handle Logout Function by clear localStorage
