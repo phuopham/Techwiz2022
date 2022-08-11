@@ -140,3 +140,9 @@ img{
 .shadown-text{
     text-shadow: 1px 1px #777777;;
 }
+
+.content-text{
+    max-width: 680px;
+    margin: auto;
+    margin-bottom: 10px;
+}
