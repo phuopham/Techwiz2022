@@ -221,8 +221,18 @@
                 <td>Reply/Delete</td>
             </tr>
             <tbody>
-                <tr>
-
+                <tr ng-repeat="fb in feedback">
+                    <td>{{fb.nameST}}</td>
+                    <td>{{fb.title}}</td>
+                    <td>{{fb.mess}}</td>
+                    <td class="d-flex justify-content-center">
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                            <i class="bi bi-reply"></i>
+                        </button>
+                        <button class="btn btn-danger">
+                            <i class="bi bi-trash3"></i>
+                        </button>
+                    </td>
                 </tr>
                 <!-- <tr>
                     <td>Tran Duy Anh</td>
@@ -268,7 +278,7 @@
             </tr>
             <tbody>
                 <tr>
-                    <td>Nguyen Hoang Nam</td>
+                    <!-- <td>Nguyen Hoang Nam</td>
                     <td>Ok xin lỗi đc chưa?</td>
                     <td>He he em hứa là mua bánh mỳ</td>
                     <td class="d-flex justify-content-center">
@@ -285,7 +295,7 @@
                         <button class="btn btn-danger">
                             <i class="bi bi-trash3"></i>
                         </button>
-                    </td>
+                    </td> -->
                 </tr>
             </tbody>
         </table>

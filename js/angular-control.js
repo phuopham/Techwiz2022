@@ -167,7 +167,9 @@ app.controller("studentController", function ($scope, $location, $http, $window)
     };
     $scope.feedback = []
     $scope.feedbackLC = JSON.parse(window.localStorage.getItem($scope.name));
-    $scope.feedback.push($scope.feedbackLC)
+    if($scope.feedbackLC != null){
+        $scope.feedback.push($scope.feedbackLC)
+    }
     console.log($scope.feedback)
     /**
      * Handle Logout Function by clear localStorage
@@ -202,6 +204,17 @@ app.controller("teacherController", function ($scope, $location, $http, $window)
                     $scope.list.push($scope.liststudent[i]);
                 }
             }
+            $scope.feedback = [] ;
+            $scope.listname = [] ;
+            for(i = 0 ; i < $scope.list.length ; i++){
+                $scope.listname.push($scope.list[i]['name']);
+            }
+            for(i = 0 ; i < $scope.list.length ; i++){
+                if(JSON.parse(window.localStorage.getItem($scope.listname[i])) != null){
+                    $scope.feedback.push(JSON.parse(window.localStorage.getItem($scope.listname[i])));
+                }
+            }
+            console.log($scope.feedback)
         });
 
     $scope.edit = function (index) {
