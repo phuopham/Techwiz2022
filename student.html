@@ -87,20 +87,14 @@
             <table class="table ">
                 <tr class="table-warning">
                     <td>Subject</td>
-                    <td>resource</td>
+                    <td>Resource</td>
+                    <td>Title</td>
                 </tr>
                 <tbody>
-                    <tr>
-                        <td>Math</td>
-                        <td><a href="">Video</a> </td>
-                    </tr>
-                    <tr>
-                        <td>Physic</td>
-                        <td><a href="">Document</a></td>
-                    </tr>
-                    <tr>
-                        <td>Chemist</td>
-                        <td> N/A</td>
+                    <tr ng-repeat="rs in src">
+                        <td>{{rs.subject}}</td>
+                        <td><a href="{{rs.url}}" target="_blank">Cilck here !</a></td>
+                        <td>{{rs.title}}</td>
                     </tr>
                 </tbody>
             </table>
