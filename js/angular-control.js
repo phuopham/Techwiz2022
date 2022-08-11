@@ -63,6 +63,7 @@ app.controller("loginController", function ($scope, $location, $http) {
                                             localStorage.setItem('user', JSON.stringify(success.data[i]));
                                             alert("Login Success!\nRedirecting to the next page...");
                                             $location.path('/student');
+                                            window.scrollTo(0,0) ;
                                             break;
                                         } else {
                                             caseErr = false;
@@ -82,6 +83,7 @@ app.controller("loginController", function ($scope, $location, $http) {
                                             localStorage.setItem('user', JSON.stringify(success.data[i]));
                                             alert("Login Success!\nRedirecting to the next page...");
                                             $location.path('/teacher');
+                                            window.scrollTo(0,0) ;
                                             break;
                                         } else {
                                             caseErr = false;
@@ -101,6 +103,7 @@ app.controller("loginController", function ($scope, $location, $http) {
                                             localStorage.setItem('user', JSON.stringify(success.data[i]));
                                             alert("Login Success!\nRedirecting to the next page...");
                                             $location.path('/parent');
+                                            window.scrollTo(0,0) ;
                                             break;
                                         } else {
                                             caseErr = false;
