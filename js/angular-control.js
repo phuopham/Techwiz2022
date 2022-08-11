@@ -142,12 +142,16 @@ app.controller("studentController", function ($scope, $location , $http, $window
             $scope.teacher_revclass = $scope.student['teachername'];
 
             $scope.student_revclass = [] ;
+            $scope.time_revclass = [] ;
             var length_revclass = $scope.revclass.length
             for(i = 0 ; i < length_revclass ; i++){
                 if($scope.revclass[i]['teacher'] == $scope.teacher_revclass){
                     $scope.student_revclass.push($scope.revclass[i]['studentname']);
+                    $scope.time_revclass.push($scope.revclass[i]['time']);
                 }
             }
+            console.log($scope.time_revclass)
+            console.log($scope.student_revclass)
 
         });
     
