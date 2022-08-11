@@ -60,6 +60,7 @@ body {
 .clock {
     font-size: 16px;
     padding: 0.75rem 1.5rem !important;
+    background-color: #FCE2DB;
 }
 
 .f-18 {
@@ -184,4 +185,23 @@ img {
     max-width: 680px;
     margin: auto;
     margin-bottom: 10px;
+}
+
+.copyright {
+    padding-top: 20px;
+}
+
+.credits {
+    padding-top: 10px;
+    text-align: center;
+    font-size: 13px;
+    color: #f1f1f1;
+}
+
+.credits a {
+    color: #f1f1f1;
+}
+
+.credits a:hover {
+    text-decoration: underline;
 }
