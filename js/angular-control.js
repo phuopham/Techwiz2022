@@ -117,49 +117,62 @@ app.controller("loginController", function ($scope, $location, $http) {
     };
 });
 
-app.controller("studentController", function ($scope, $location , $http, $window) {
+app.controller("studentController", function ($scope, $location, $http, $window) {
     /**
      * Block Client Access with Log in
      */
     if (!localStorage['user']) {
         $location.path('/');
     };
-            $scope.student = JSON.parse(window.localStorage.getItem('user'));
-            let lst_mark_obj = $scope.student.mark;
-            
-            let lst_sbuject_name = Object.keys(lst_mark_obj);
-            let lst_sbuject_mark = Object.values(lst_mark_obj);
-            
-            $scope.lst_subject = [];
-            lst_sbuject_name.forEach(function(elm,index){
-                $scope.lst_subject.push({'name': elm, 'mark': lst_sbuject_mark[index]});
-            });
-            $scope.name = $scope.student['name'];
-            $scope.progress = $scope.student['progress'];
+    $scope.student = JSON.parse(window.localStorage.getItem('user'));
+    let lst_mark_obj = $scope.student.mark;
+
+    let lst_sbuject_name = Object.keys(lst_mark_obj);
+    let lst_sbuject_mark = Object.values(lst_mark_obj);
+
+    $scope.lst_subject = [];
+    lst_sbuject_name.forEach(function (elm, index) {
+        $scope.lst_subject.push({ 'name': elm, 'mark': lst_sbuject_mark[index] });
+    });
+    $scope.name = $scope.student['name'];
+    $scope.progress = $scope.student['progress'];
     $http.get("json/revclass.json")
         .then(function (res) {
             $scope.revclass = res.data;
             $scope.teacher_revclass = $scope.student['teachername'];
 
-            $scope.student_revclass = [] ;
-            $scope.time_revclass = [] ;
+            $scope.student_revclass = [];
+            $scope.time_revclass = [];
             var length_revclass = $scope.revclass.length
-            for(i = 0 ; i < length_revclass ; i++){
-                if($scope.revclass[i]['teacher'] == $scope.teacher_revclass){
+            for (i = 0; i < length_revclass; i++) {
+                if ($scope.revclass[i]['teacher'] == $scope.teacher_revclass) {
                     $scope.student_revclass.push($scope.revclass[i]['studentname']);
                     $scope.time_revclass.push($scope.revclass[i]['time']);
                 }
             }
         });
-    
+   
+    $scope.feedbackSTtoTC = function () {
+        $scope.feedbackofST = {
+            "nameST" : $scope.name , 
+            "nameTC" : $scope.teacher_revclass ,
+            "title" : $scope.titleST ,
+            "mess" : $scope.messST
+        }
+        localStorage.setItem($scope.name , JSON.stringify($scope.feedbackofST));
+    };
+    $scope.feedback = []
+    $scope.feedbackLC = JSON.parse(window.localStorage.getItem($scope.name));
+    $scope.feedback.push($scope.feedbackLC)
+    console.log($scope.feedback)
     /**
      * Handle Logout Function by clear localStorage
      */
-    $scope.handleLogout = function() {
+    $scope.handleLogout = function () {
         $window.localStorage.clear();
-        $window.location.reload();
+        $location.path('/');
     };
-    
+
 });
 
 app.controller("teacherController", function ($scope, $location, $http, $window) {
@@ -195,11 +208,11 @@ app.controller("teacherController", function ($scope, $location, $http, $window)
         $scope.parents = $scope.list[index]['parents'];
         $scope.progress = $scope.list[index]['progress'];
         $scope.teachername = $scope.list[index]['teachername'];
-        $scope.index = index ;
+        $scope.index = index;
 
     };
     $scope.save = function () {
-        var index = $scope.index ;
+        var index = $scope.index;
         $scope.list[index]['name'] = $scope.name;
         $scope.list[index]['mark']['math'] = $scope.math;
         $scope.list[index]['mark']['physic'] = $scope.physic;
@@ -210,15 +223,29 @@ app.controller("teacherController", function ($scope, $location, $http, $window)
 
     };
     $scope.del = function (index) {
-        $scope.list.splice(index,1);
+        $scope.list.splice(index, 1);
     }
+    
+    $http.get("json/students.json")
+        .then(function(res){
+            $scope.liststudent = res.data ;
+            var check = JSON.parse(window.localStorage.getItem('user'));
+            $scope.teachername = check['teachername'];
+            $scope.list = [];
+            for (i = 0; i < length; i++) {
+                if ($scope.liststudent[i]['teachername'] === check['teachername']) {
+                    $scope.list.push($scope.liststudent[i]);
+                }
+            }
+            console.log($scope.list)
+        })
 
     /**
      * Handle Logout Function by clear localStorage
      */
-     $scope.handleLogout = function() {
+    $scope.handleLogout = function () {
         $window.localStorage.clear();
-        $window.location.reload();
+        $location.path('/');
     };
 });
 
@@ -233,8 +260,8 @@ app.controller("parentController", function ($scope, $location, $window) {
     /**
      * Handle Logout Function by clear localStorage
      */
-     $scope.handleLogout = function() {
+    $scope.handleLogout = function () {
         $window.localStorage.clear();
-        $window.location.reload();
-    };    
+        $location.path('/');
+    };
 });
