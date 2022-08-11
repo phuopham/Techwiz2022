@@ -46,6 +46,17 @@ body {
     box-shadow: none !important;
 }
 
+/**
+ * General Section
+ */
+
+ .flex-wrapper {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 /*--------------------------------------------------------------
 # Navigation Menu
 --------------------------------------------------------------*/
@@ -109,13 +120,6 @@ body {
     .navbar ul {
         display: none;
     }
-}
-
-.flex-wrapper {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-    justify-content: space-between;
 }
 
 /**
