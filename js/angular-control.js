@@ -163,7 +163,7 @@ app.controller("studentController", function ($scope, $location, $http, $window)
     $scope.feedback = []
     $scope.feedbackLC = JSON.parse(window.localStorage.getItem($scope.name));
     if($scope.feedbackLC != null){
-        $scope.feedback.push($scope.feedbackLC)
+        $scope.feedback.push($scope.feedbackLC);
     }
 
     $scope.feedbackSTtoTC = function (event) {
@@ -174,9 +174,11 @@ app.controller("studentController", function ($scope, $location, $http, $window)
             "mess" : $scope.messST
         }
         $scope.feedback.push($scope.feedbackofST);
-      //  localStorage.setItem($scope.name , JSON.stringify($scope.feedbackofST));
+       localStorage.setItem($scope.name , JSON.stringify($scope.feedbackofST));
+       $scope.titleST = "" ;
+       $scope.messST = "" ;
     };
-    console.log($scope.feedback)
+        
     /**
      * Handle Logout Function by clear localStorage
      */
@@ -223,8 +225,6 @@ app.controller("teacherController", function ($scope, $location, $http, $window)
                     $scope.feedback.push(JSON.parse(window.localStorage.getItem($scope.listname[i])));
                 }
             }
-            console.log($scope.listname)
-            console.log($scope.feedback)
             
         });
 
@@ -252,8 +252,43 @@ app.controller("teacherController", function ($scope, $location, $http, $window)
     };
     $scope.del = function (index) {
         $scope.list.splice(index, 1);
-    }
-    
+    };
+    $scope.add = function () {
+        $scope.addlist = {
+            "name":$scope.addname,
+            "mark":{
+                "math":$scope.addmath,
+                "physic":$scope.addphysic,
+                "chemist":$scope.addchemist
+            },
+            "progress":$scope.addprogress
+        }
+        $scope.list.push($scope.addlist);
+        $scope.addname = "" ;
+        $scope.addmath = "" ;
+        $scope.addphysic = "" ;
+        $scope.addchemist = "" ;
+        $scope.addprogress = "" ;
+    ;}
+    $http.get('json/revclass.json')
+        .then(function(res2){
+            $scope.listrev = res2.data ;
+            $scope.time_rev = [] ;
+            var check = JSON.parse(window.localStorage.getItem('user'));
+            $scope.teachername = check['teachername'];
+            for(i = 0 ; i < $scope.listrev.length ; i++ ){
+                if($scope.listrev[i]['teacher'] == $scope.teachername){
+                    $scope.time_rev.push($scope.listrev[i]['time'])
+                }
+            }
+        });
+
+    $scope.addschedule = function() {
+        $scope.timenew = $scope.adddate + " " + $scope.addtime
+        $scope.time_rev.push($scope.timenew);
+        $scope.addtime = "" ;
+        $scope.adddate = "" ;
+    };
     /**
      * Handle Logout Function by clear localStorage
      */
@@ -286,7 +321,7 @@ app.controller("parentController", function ($scope, $location, $window) {
     });
 
     $scope.progress = $scope.studentLC['progress'];
-
+    $scope.feedbacks = [] ;
     $scope.feedback = function() {
         $scope.feedbackofST = {
             "nameST" : $scope.studentLC['parents'] , 
@@ -294,14 +329,17 @@ app.controller("parentController", function ($scope, $location, $window) {
             "title" : $scope.title ,
             "mess" : $scope.mess
         }
+        $scope.feedbacks.push($scope.feedbackofST);
         localStorage.setItem($scope.parent , JSON.stringify($scope.feedbackofST));
+        $scope.title = "" ;
+        $scope.mess = "" ;
     };
-    $scope.feedbacks = [] ;
+    
     $scope.feedbackLC = JSON.parse(window.localStorage.getItem($scope.parent));
     if($scope.feedbackLC != null){
         $scope.feedbacks.push($scope.feedbackLC)
     }
-    console.log($scope.feedbacks);
+
 
 
 

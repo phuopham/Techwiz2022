@@ -44,18 +44,70 @@
                     </tbody>
                     <tfoot>
                         <tr>
-                            <td><input type="text" class="form-control" placeholder="Name"></td>
-                            <td><input type="number" class="form-control" placeholder="Mark"></td>
-                            <td><input type="number" class="form-control" placeholder="Mark"></td>
-                            <td><input type="number" class="form-control" placeholder="Mark"></td>
-                            <td><button class="btn btn-warning form-control" type="submit">
+                            <td><input type="text" class="form-control" placeholder="Name" ng-model="addname"></td>
+                            <td><input type="number" class="form-control" placeholder="Mark" ng-model="addmath"></td>
+                            <td><input type="number" class="form-control" placeholder="Mark" ng-model="addphysic"></td>
+                            <td><input type="number" class="form-control" placeholder="Mark" ng-model="addchemist"></td>
+                            <td><input type="number" class="form-control" placeholder="Progress" ng-model="addprogress">
+                            </td>
+                            <td><button class="btn btn-warning form-control" type="submit" ng-click="add()">
                                     <i class="bi bi-person-plus"></i>
                                 </button></td>
                         </tr>
                     </tfoot>
                 </table>
             </form>
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label>Name</label>
+                                <input class="form-control" type="text" ng-model="name">
+                                <input type="text" ng-model="index" hidden>
+                            </div>
+                            <div>
+                                <label>Mark-Math</label>
+                                <input class="form-control" type="text" ng-model="math">
+                            </div>
+                            <div>
+                                <label>Mark-Physic</label>
+                                <input class="form-control" type="text" ng-model="physic">
+                            </div>
+                            <div>
+                                <label>Mark-Chemist</label>
+                                <input class="form-control" type="text" ng-model="chemist">
+                            </div>
+                            <div>
+                                <label>Parents</label>
+                                <input class="form-control" type="text" ng-model="parents">
+                            </div>
+                            <div>
+                                <label>Progress</label>
+                                <input class="form-control" type="text" ng-model="progress">
+                            </div>
+                            <div>
+                                <label>Teacher Name</label>
+                                <input class="form-control" type="text" ng-model="teachername">
+                            </div>
 
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" ng-click="save()" class="btn btn-primary close" data-dismiss="modal"
+                                aria-label="Close">Save changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
         </div>
         <!-- academic progress -->
@@ -107,27 +159,25 @@
             </div>
             <div class="ps-3">
                 <ol ng-repeat="student in list">
-                    <li>{{student.name}}</li>
+                    {{$index+1}}. {{student.name}}
                 </ol>
             </div>
             <div class="ps-3">
                 Schedule:
             </div>
-            <div class="ps-4">
-                DD-MM-YYYY XX:YY
-            </div>
-            <div class="ps-4">
-                DD-MM-YYYY XX:YY
-            </div>
+            <ol>
+                <li ng-repeat="time in time_rev track by $index">{{time}}</li>
+            </ol>
             <div class="ps-3">
                 Add next Schedule
             </div>
             <form action="">
                 <div class="mb-3">
-                    <input type="datetime-local" class="form-control" name="" id="">
+                    <input type="text" class="form-control" placeholder="YYYY/mm/DD" ng-model="adddate">
+                    <input type="text" class="form-control" placeholder="00:00:00" ng-model="addtime">
                 </div>
                 <div class="d-flex justify-content-end">
-                    <button class="btn btn-warning">Add schedule</button>
+                    <button class="btn btn-warning" ng-click="addschedule()">Add schedule</button>
                 </div>
             </form>
         </div>
@@ -202,69 +252,6 @@
                             <i class="bi bi-trash3"></i>
                         </button>
                     </td>
-                </tr>
-                <!-- <tr>
-                    <td>Tran Duy Anh</td>
-                    <td>Làm ăn thế hả</td>
-                    <td>Tối gặp tao ở cổng trường</td>
-                    <td class="d-flex justify-content-center">
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                            <i class="bi bi-reply"></i>
-                        </button>
-                        <button class="btn btn-danger">
-                            <i class="bi bi-trash3"></i>
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Nguyen Manh Nam</td>
-                    <td>Chuyện gì thế em</td>
-                    <td>Anh Duy Anh sao lại muốn chém em thế?</td>
-                    <td class="d-flex justify-content-center">
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                            <i class="bi bi-reply"></i>
-                        </button>
-                        <button class="btn btn-danger">
-                            <i class="bi bi-trash3"></i>
-                        </button>
-                    </td>
-                </tr> -->
-            </tbody>
-        </table>
-    </div>
-    <div class="d-flex justify-content-center d-md-block mb-3">
-        <h2>
-            Advice for students
-        </h2>
-    </div>
-    <div>
-        <table class="table">
-            <tr class="table-warning">
-                <td>To</td>
-                <td>Title</td>
-                <td>Content</td>
-                <td>Reply/Delete</td>
-            </tr>
-            <tbody>
-                <tr>
-                    <!-- <td>Nguyen Hoang Nam</td>
-                    <td>Ok xin lỗi đc chưa?</td>
-                    <td>He he em hứa là mua bánh mỳ</td>
-                    <td class="d-flex justify-content-center">
-                        <button class="btn btn-danger">
-                            <i class="bi bi-trash3"></i>
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Vu Manh Nam</td>
-                    <td>Nam con</td>
-                    <td>2k Đến là đón</td>
-                    <td class="d-flex justify-content-center">
-                        <button class="btn btn-danger">
-                            <i class="bi bi-trash3"></i>
-                        </button>
-                    </td> -->
                 </tr>
             </tbody>
         </table>
