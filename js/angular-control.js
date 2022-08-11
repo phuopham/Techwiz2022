@@ -33,7 +33,7 @@ app.config(function ($routeProvider) {
 app.controller("loginController", function ($scope, $location, $http) {
     $scope.scrolllogin = function (event) {
         event.preventDefault();
-        const element = document.getElementById("loginform");
+        const element = document.getElementById("welcome-mess");
         element.scrollIntoView();
     }
     $scope.errMessage = "";

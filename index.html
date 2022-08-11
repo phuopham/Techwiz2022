@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=0.9">
   <title>eStudiez</title>
 
   <link rel="icon" href="./images/mortarboard.png">
@@ -77,22 +77,22 @@
     <div ng-view></div>
     <div class="container-fluid bg-warning mt-5 foot">
       <div class="container-fluid py-3">
-        <div class="col text-muted d-flex justify-content-end">HELLOWORLD.txt &copy;<a class="text-decoration-none"
+        <div class="col d-flex justify-content-end text-dark">HELLOWORLD.txt &copy;<a class="nav-link"
             href="https://aptechvietnam.com.vn/"> TECHWIZ 2022</a></div>
-        <div class="col text-muted d-flex justify-content-end">Contact us: HELLOWORLD</div>
-        <a class="col text-muted d-flex justify-content-end text-decoration-none"
+        <div class="col d-flex justify-content-end position-relative mapopen">Contact us: HELLOWORLD
+          <div class="position-absolute bottom-100 end-0 maptoggle" style="display:none;">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.9242786516793!2d105.81684051548365!3d21.035715592915484!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab145bf89bd7%3A0xd94a869b494c04b6!2zMjg1IMSQ4buZaSBD4bqlbiwgVsSpbmggUGjDuiwgQmEgxJDDrG5oLCBIw6AgTuG7mWkgMTAwMDAwLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1660212469461!5m2!1svi!2s"
+              width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+        <a class="col d-flex justify-content-end nav-link"
           href="mailto:HELLOWORLDtxt@aptechlearning.edu.vn">HELLOWORLDtxt@aptechlearning.edu.vn</a>
       </div>
     </div>
-    <div class="container-fluid bg-dark d-flex flex-column align-items-center">
-      <div class="copyright text-white">
-          &copy; Copyright <strong><span>HelloWorld.txt</span></strong>. All Rights Reserved
-      </div>
-      <div class="credits text-white">
-          Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-      </div>
   </div>
-  </div>
+  <!-- clock and geo location -->
   <div class="clock fixed-bottom ms-5 px-2 d-none d-md-block" style="right:auto; bottom: 0.75rem; opacity: 0.7;">
     <div id="Date" class="text-align-left fw-bold"></div>
     <ul class="ultime px-0 my-0">
@@ -112,6 +112,7 @@
   <!-- clock -->
 
   <script>
+    //clock and location button
     $('.clock').on('click', () => {
       $(".geo").toggle();
       $('#Date').toggle();
@@ -119,6 +120,7 @@
       $('.toggle-btn-clock').toggle();
 
     })
+    //clock function
     $(document).ready(function () {
 
       // Create two variable with the names of the months and days in an array
@@ -153,6 +155,11 @@
         $("#hours").html((hours < 10 ? "0" : "") + hours);
       }, 1000);
     });
+
+    //map footer
+    $('.mapopen').on('click', () => {
+      $(".maptoggle").toggle();
+    })
   </script>
 
   <!-- clock end -->

@@ -25,16 +25,20 @@ body {
 --------------------------------------------------------------*/
 .lp-input-text {
     border: none !important;
-    border-bottom: 1px solid #ced4da !important;
+    border-bottom: 1px solid #e1e1e1 !important;
     box-shadow: none !important;
 }
 
 .lp-input-text:hover {
-    border-bottom: 1px solid #222 !important;
+    border-bottom: 1px solid #162d3d !important;
 }
 
 .lp-input-text:focus {
     border-bottom: 3px solid #ffca2c !important;
+}
+
+.lp-input-text ~ label {
+    padding: 1rem 1.5rem !important;
 }
 
 .lp-input-radio:checked {
@@ -178,7 +182,6 @@ img {
 
 .shadown-text {
     text-shadow: 1px 1px 2px #777777;
-    ;
 }
 
 .content-text {
@@ -187,21 +190,3 @@ img {
     margin-bottom: 10px;
 }
 
-.copyright {
-    padding-top: 20px;
-}
-
-.credits {
-    padding-top: 10px;
-    text-align: center;
-    font-size: 13px;
-    color: #f1f1f1;
-}
-
-.credits a {
-    color: #f1f1f1;
-}
-
-.credits a:hover {
-    text-decoration: underline;
-}
