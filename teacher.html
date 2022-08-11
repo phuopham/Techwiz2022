@@ -191,33 +191,30 @@
                 </h2>
             </div>
             <form action="" class="form-group">
-                <table class="table">
+                <table class="table ">
                     <tr class="table-warning">
                         <td>Subject</td>
-                        <td>resource</td>
+                        <td>Resource</td>
                     </tr>
                     <tbody>
-                        <tr>
-                            <td>Math</td>
-                            <td><a href="">Video</a> </td>
+                        <tr ng-repeat="rs in src">
+                            <td>{{rs.subject}}</td>
+                            <td><a href="{{rs.url}}" target="_blank">{{rs.title}}</a></td>
                         </tr>
-                        <tr>
-                            <td>Physic</td>
-                            <td><a href="">Document</a></td>
-                        </tr>
-                        <tr>
-                            <td>Chemist</td>
-                            <td> N/A</td>
-                        </tr>
-                        <tr>
-                            <td><input type="text" class="form-control" placeholder="Name"></td>
-                            <td><input type="text" class="form-control" placeholder="Link to resource"></td>
-                        </tr>
+                    </tbody>
+                    <tr>
+                        <td><input type="text" class="form-control" placeholder="Subject" ng-model="addDocsubject"></td>
+                        <td><input type="text" class="form-control" placeholder="Title" ng-model="addDoctitle"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><input type="text" class="form-control" placeholder="Link to resource"
+                                ng-model="addDocresource"></td>
+                    </tr>
                     </tbody>
 
                 </table>
                 <div>
-                    <button type="submit" class="btn btn-warning">Add document</button>
+                    <button type="submit" class="btn btn-warning" ng-click="addDoc()">Add document</button>
                 </div>
             </form>
 

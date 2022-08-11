@@ -38,7 +38,7 @@ app.controller("loginController", function ($scope, $location, $http) {
     }
     $scope.errMessage = "";
     $scope.handleLogin = function () {
-        if(!$scope.name || !$scope.type) {
+        if (!$scope.name || !$scope.type) {
             alert("eStudiez Name and Role can not empty");
         } else {
             $http({
@@ -63,7 +63,7 @@ app.controller("loginController", function ($scope, $location, $http) {
                                             localStorage.setItem('user', JSON.stringify(success.data[i]));
                                             alert("Login Success!\nRedirecting to the next page...");
                                             $location.path('/student');
-                                            window.scrollTo(0,0) ;
+                                            window.scrollTo(0, 0);
                                             break;
                                         } else {
                                             caseErr = false;
@@ -83,7 +83,7 @@ app.controller("loginController", function ($scope, $location, $http) {
                                             localStorage.setItem('user', JSON.stringify(success.data[i]));
                                             alert("Login Success!\nRedirecting to the next page...");
                                             $location.path('/teacher');
-                                            window.scrollTo(0,0) ;
+                                            window.scrollTo(0, 0);
                                             break;
                                         } else {
                                             caseErr = false;
@@ -103,7 +103,7 @@ app.controller("loginController", function ($scope, $location, $http) {
                                             localStorage.setItem('user', JSON.stringify(success.data[i]));
                                             alert("Login Success!\nRedirecting to the next page...");
                                             $location.path('/parent');
-                                            window.scrollTo(0,0) ;
+                                            window.scrollTo(0, 0);
                                             break;
                                         } else {
                                             caseErr = false;
@@ -158,27 +158,32 @@ app.controller("studentController", function ($scope, $location, $http, $window)
                 }
             }
         });
-   
-   
+    $http.get("json/resources.json")
+        .then(function (res) {
+            $scope.src = res.data;
+            console.log($scope.src[1]['subject'])
+        });
+
+
     $scope.feedback = []
     $scope.feedbackLC = JSON.parse(window.localStorage.getItem($scope.name));
-    if($scope.feedbackLC != null){
+    if ($scope.feedbackLC != null) {
         $scope.feedback.push($scope.feedbackLC);
     }
 
     $scope.feedbackSTtoTC = function (event) {
         $scope.feedbackofST = {
-            "nameST" : $scope.name , 
-            "nameTC" : $scope.teacher_revclass ,
-            "title" : $scope.titleST ,
-            "mess" : $scope.messST
+            "nameST": $scope.name,
+            "nameTC": $scope.teacher_revclass,
+            "title": $scope.titleST,
+            "mess": $scope.messST
         }
         $scope.feedback.push($scope.feedbackofST);
-       localStorage.setItem($scope.name , JSON.stringify($scope.feedbackofST));
-       $scope.titleST = "" ;
-       $scope.messST = "" ;
+        localStorage.setItem($scope.name, JSON.stringify($scope.feedbackofST));
+        $scope.titleST = "";
+        $scope.messST = "";
     };
-        
+
     /**
      * Handle Logout Function by clear localStorage
      */
@@ -212,21 +217,35 @@ app.controller("teacherController", function ($scope, $location, $http, $window)
                     $scope.list.push($scope.liststudent[i]);
                 }
             }
-            $scope.feedback = [] ;
-            $scope.listname = [] ;
-            for(i = 0 ; i < $scope.list.length ; i++){
+            $scope.feedback = [];
+            $scope.listname = [];
+            for (i = 0; i < $scope.list.length; i++) {
                 $scope.listname.push($scope.list[i]['name']);
             }
-            for(i = 0 ; i < $scope.list.length ; i++){
+            for (i = 0; i < $scope.list.length; i++) {
                 $scope.listname.push($scope.list[i]['parents']);
             }
-            for(i = 0 ; i < $scope.list.length+$scope.list.length ; i++){
-                if(JSON.parse(window.localStorage.getItem($scope.listname[i])) != null){
+            for (i = 0; i < $scope.list.length + $scope.list.length; i++) {
+                if (JSON.parse(window.localStorage.getItem($scope.listname[i])) != null) {
                     $scope.feedback.push(JSON.parse(window.localStorage.getItem($scope.listname[i])));
                 }
             }
-            
+
         });
+
+    $http.get("json/resources.json")
+        .then(function (res) {
+            $scope.src = res.data;
+        });
+
+    $scope.addDoc = function() {
+        $scope.list_addDoc = {
+            "subject" : $scope.addDocsubject ,
+            "url": $scope.addDocresource ,
+            "title" : $scope.addDoctitle
+        }
+        $scope.src.push($scope.list_addDoc);
+    }
 
     $scope.edit = function (index) {
         $scope.name = $scope.list[index]['name'];
@@ -255,39 +274,40 @@ app.controller("teacherController", function ($scope, $location, $http, $window)
     };
     $scope.add = function () {
         $scope.addlist = {
-            "name":$scope.addname,
-            "mark":{
-                "math":$scope.addmath,
-                "physic":$scope.addphysic,
-                "chemist":$scope.addchemist
+            "name": $scope.addname,
+            "mark": {
+                "math": $scope.addmath,
+                "physic": $scope.addphysic,
+                "chemist": $scope.addchemist
             },
-            "progress":$scope.addprogress
+            "progress": $scope.addprogress
         }
         $scope.list.push($scope.addlist);
-        $scope.addname = "" ;
-        $scope.addmath = "" ;
-        $scope.addphysic = "" ;
-        $scope.addchemist = "" ;
-        $scope.addprogress = "" ;
-    ;}
+        $scope.addname = "";
+        $scope.addmath = "";
+        $scope.addphysic = "";
+        $scope.addchemist = "";
+        $scope.addprogress = "";
+        ;
+    }
     $http.get('json/revclass.json')
-        .then(function(res2){
-            $scope.listrev = res2.data ;
-            $scope.time_rev = [] ;
+        .then(function (res2) {
+            $scope.listrev = res2.data;
+            $scope.time_rev = [];
             var check = JSON.parse(window.localStorage.getItem('user'));
             $scope.teachername = check['teachername'];
-            for(i = 0 ; i < $scope.listrev.length ; i++ ){
-                if($scope.listrev[i]['teacher'] == $scope.teachername){
+            for (i = 0; i < $scope.listrev.length; i++) {
+                if ($scope.listrev[i]['teacher'] == $scope.teachername) {
                     $scope.time_rev.push($scope.listrev[i]['time'])
                 }
             }
         });
 
-    $scope.addschedule = function() {
+    $scope.addschedule = function () {
         $scope.timenew = $scope.adddate + " " + $scope.addtime
         $scope.time_rev.push($scope.timenew);
-        $scope.addtime = "" ;
-        $scope.adddate = "" ;
+        $scope.addtime = "";
+        $scope.adddate = "";
     };
     /**
      * Handle Logout Function by clear localStorage
@@ -306,9 +326,9 @@ app.controller("parentController", function ($scope, $location, $window) {
         $location.path('/');
     };
 
-    
+
     $scope.studentLC = JSON.parse(window.localStorage.getItem('user'));
-    $scope.student = $scope.studentLC['name'] ;
+    $scope.student = $scope.studentLC['name'];
     $scope.parent = $scope.studentLC['parents'];
     let lst_mark_obj = $scope.studentLC.mark;
 
@@ -321,22 +341,22 @@ app.controller("parentController", function ($scope, $location, $window) {
     });
 
     $scope.progress = $scope.studentLC['progress'];
-    $scope.feedbacks = [] ;
-    $scope.feedback = function() {
+    $scope.feedbacks = [];
+    $scope.feedback = function () {
         $scope.feedbackofST = {
-            "nameST" : $scope.studentLC['parents'] , 
-            "nameTC" : $scope.studentLC['teachername'] ,
-            "title" : $scope.title ,
-            "mess" : $scope.mess
+            "nameST": $scope.studentLC['parents'],
+            "nameTC": $scope.studentLC['teachername'],
+            "title": $scope.title,
+            "mess": $scope.mess
         }
         $scope.feedbacks.push($scope.feedbackofST);
-        localStorage.setItem($scope.parent , JSON.stringify($scope.feedbackofST));
-        $scope.title = "" ;
-        $scope.mess = "" ;
+        localStorage.setItem($scope.parent, JSON.stringify($scope.feedbackofST));
+        $scope.title = "";
+        $scope.mess = "";
     };
-    
+
     $scope.feedbackLC = JSON.parse(window.localStorage.getItem($scope.parent));
-    if($scope.feedbackLC != null){
+    if ($scope.feedbackLC != null) {
         $scope.feedbacks.push($scope.feedbackLC)
     }
 
@@ -348,13 +368,13 @@ app.controller("parentController", function ($scope, $location, $window) {
         $location.path('/');
     };
 
-    
-});
-
-app.controller("aboutController", function ($scope){
 
 });
 
-app.controller("contactController", function ($scope){
+app.controller("aboutController", function ($scope) {
+
+});
+
+app.controller("contactController", function ($scope) {
 
 });
