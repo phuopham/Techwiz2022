@@ -39,7 +39,7 @@ app.controller("loginController", function ($scope, $location, $http) {
     $scope.errMessage = "";
     $scope.handleLogin = function () {
         if(!$scope.name || !$scope.type) {
-            alert("eStudies Name and Role can not not empty");
+            alert("eStudiez Name and Role can not empty");
         } else {
             $http({
                 method: 'GET',
