@@ -37,6 +37,10 @@ body {
     border-bottom: 3px solid #ffca2c !important;
 }
 
+.lp-input-text ~ label {
+    padding: 1rem 1.5rem !important;
+}
+
 .lp-input-radio:checked {
     background-color: #ffca2c !important;
     border-color: #ffca2c !important;
