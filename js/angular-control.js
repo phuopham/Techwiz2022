@@ -226,20 +226,6 @@ app.controller("teacherController", function ($scope, $location, $http, $window)
         $scope.list.splice(index, 1);
     }
     
-    $http.get("json/students.json")
-        .then(function(res){
-            $scope.liststudent = res.data ;
-            var check = JSON.parse(window.localStorage.getItem('user'));
-            $scope.teachername = check['teachername'];
-            $scope.list = [];
-            for (i = 0; i < length; i++) {
-                if ($scope.liststudent[i]['teachername'] === check['teachername']) {
-                    $scope.list.push($scope.liststudent[i]);
-                }
-            }
-            console.log($scope.list)
-        })
-
     /**
      * Handle Logout Function by clear localStorage
      */
