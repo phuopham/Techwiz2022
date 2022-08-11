@@ -23,9 +23,8 @@
   <!-- Add CSS File  -->
   <link rel="stylesheet" href="./css/main.css">
 
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-    crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
     integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
     crossorigin="anonymous"></script>
@@ -84,7 +83,7 @@
             href="https://aptechvietnam.com.vn/"> TECHWIZ 2022</a></div>
         <div class="col text-muted d-flex justify-content-end">Contact us: HELLOWORLD</div>
         <a class="col text-muted d-flex justify-content-end text-decoration-none"
-          href="mailto:HELLOWORLDtxt@aptechlearning.edu.vn">Email: HELLOWORLDtxt@aptechlearning.edu.vn</a>
+          href="mailto:HELLOWORLDtxt@aptechlearning.edu.vn">HELLOWORLDtxt@aptechlearning.edu.vn</a>
       </div>
 
     </div>
@@ -92,6 +91,8 @@
   <div class="clock fixed-bottom rounded ms-5 px-2 d-none d-md-block" style="right:auto; opacity:70%;">
     <div id="Date" class="text-align-left fw-bold"></div>
     <ul class="ultime px-0 my-0">
+      <li class="geo d-inline-block fw-bold"></li>
+      <li class="d-inline-block fw-bold">-</li>
       <li class="idtime d-inline-block fw-bold" id="hours"></li>
       <li class="idtime d-inline-block fw-bold" id="point">:</li>
       <li class="idtime d-inline-block fw-bold" id="min"></li>
@@ -107,9 +108,11 @@
 
   <script>
     $('.clock').on('click', () => {
+      $(".geo").toggle();
       $('#Date').toggle();
       $('.ultime').toggle();
       $('.toggle-btn-clock').toggle();
+
     })
     $(document).ready(function () {
 
@@ -160,8 +163,8 @@
   <!-- Add JavaScript Main File -->
   <script src="./js/main.js"></script>
   <!-- geo -->
-  <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpuhPAXBFKTzK1P7n9vSW87mZtZBSG408&libraries=places&callback=showMap"></script>
+  <!-- <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpuhPAXBFKTzK1P7n9vSW87mZtZBSG408&libraries=places&callback=showMap"></script> -->
   <script src="./js/geo.js"></script>
 </body>
 
