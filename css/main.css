@@ -142,6 +142,13 @@ body {
     }
 }
 
+@media (max-width:550px) {
+    table.table.tablescroll {
+        display: block !important;
+        overflow: scroll !important;
+    }
+}
+
 /**
  * Footer Section
  */
