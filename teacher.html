@@ -15,7 +15,6 @@
                     Marks
                 </h2>
             </div>
-
             <form class="form-group" action="">
                 <table class="table tablescroll">
                     <tr class="table-warning">
@@ -23,7 +22,7 @@
                         <td>Math</td>
                         <td>Physic</td>
                         <td>Chemist</td>
-                        <td>Update/Delete</td>
+                        <td colspan="2">Update/Delete</td>
                     </tr>
                     <tbody ng-repeat="student in list">
                         <tr>
@@ -237,28 +236,17 @@
                 <td>From</td>
                 <td>Title</td>
                 <td>Content</td>
-                <td>Reply/Delete</td>
             </tr>
             <tbody>
                 <tr ng-repeat="fb in feedback">
                     <td>{{fb.nameST}}</td>
                     <td>{{fb.title}}</td>
                     <td>{{fb.mess}}</td>
-                    <td class="d-flex justify-content-center">
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                            <i class="bi bi-reply"></i>
-                        </button>
-                        <button class="btn btn-danger">
-                            <i class="bi bi-trash3"></i>
-                        </button>
-                    </td>
                 </tr>
             </tbody>
         </table>
     </div>
 </div>
-
-
 <div class="container my-5">
 
     <div class="row">
