@@ -186,20 +186,3 @@ img {
     margin-bottom: 10px;
 }
 
-.copyright {
-    padding-top: 20px;
-}
-
-.credits {
-    padding-top: 10px;
-    text-align: center;
-    font-size: 13px;
-}
-
-.credits a {
-    color: #000;
-}
-
-.credits a:hover {
-    text-decoration: underline;
-}
