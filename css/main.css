@@ -136,3 +136,7 @@ body {
 img{
     width: 100% !important;
 }
+
+.shadown-text{
+    text-shadow: 1px 1px #777777;;
+}
