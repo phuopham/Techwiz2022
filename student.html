@@ -1,37 +1,8 @@
 <div class="container">
-    <nav class="navbar navbar-expand-lg">
-        <div>
-            <p class="navbar-brand text-weight-bold" href="index.html">
-
-                Student : <span class="h3">{{name}}</span>
-
-            </p>
-        </div>
-
-        <div class="d-none d-lg-flex ms-auto flex-column ">
-            <ul class="navbar-nav ">
-
-                <li class="nav-item ">
-                    <a class="nav-link" href="#!/student#mark"> Your mark </a>
-                </li>
-                <li class="nav-item ">
-                    <a class="nav-link" href="#!/student#mark"> Academic Progress </a>
-                </li>
-                <li class="nav-item ">
-                    <a class="nav-link" href="#!/student#resource"> Study Resource </a>
-                </li>
-
-                <li class="nav-item ">
-                    <a class="nav-link" href="#!/student#feedback"> Feedback </a>
-                </li>
-
-                <li class="nav-item">
-                    <button type="button" class="btn btn-danger" ng-click="handleLogout()">Log out</button>
-                </li>
-
-            </ul>
-        </div>
-    </nav>
+    <div class="d-flex justify-content-between align-items-center">
+        <p class="navbar-brand text-weight-bold">Student : <span class="h3">{{name}}</span></p>
+        <button type="button" class="btn btn-danger" ng-click="handleLogout()">Log out</button>
+    </div>
 </div>
 
 <!-- your mark -->
