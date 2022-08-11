@@ -178,7 +178,6 @@ img {
 
 .shadown-text {
     text-shadow: 1px 1px 2px #777777;
-    ;
 }
 
 .content-text {
@@ -195,11 +194,10 @@ img {
     padding-top: 10px;
     text-align: center;
     font-size: 13px;
-    color: #f1f1f1;
 }
 
 .credits a {
-    color: #f1f1f1;
+    color: #000;
 }
 
 .credits a:hover {
