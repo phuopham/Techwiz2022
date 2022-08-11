@@ -39,7 +39,36 @@
 
   <!-- Template AngularJS -->
   <div class="flex-wrapper">
-    <div class="header"></div>
+    <div id="header" class="fixed-top d-flex align-items-center bg-warning border-bottom">
+      <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+          <div class="d-flex align-items-center">
+              <a class="navbar-brand p-2" href="#">
+                  <img class="mr-2" src="images/mortarboard.png" style="max-height: 35px;" alt="">
+                  <p class="d-inline fw-bold"> eStudies</p>
+              </a>
+          </div>
+          <nav id="navbar" class="navbar">
+              <ul>
+                  <li><a class="nav-link" href="#!">Home</a></li>
+                  <li><a class="nav-link" href="#!/about">About</a></li>
+                  <li><a class="nav-link" href="#!/contact">Contact</a></li>
+              </ul>
+              <i class="bi bi-list mobile-nav-toggle p-2" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"></i>
+              <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+                  <div class="offcanvas-header">
+                    <h5 id="offcanvasRightLabel">Offcanvas right</h5>
+                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                  </div>
+                  <div class="offcanvas-body">
+                      <button type="button" class="btn btn-white container-fluid" data-bs-dismiss="offcanvas"><a class="nav-link" href="#!">Home</a></button>
+                      <button type="button" class="btn btn-white container-fluid" data-bs-dismiss="offcanvas"><a class="nav-link" href="#!about">About</a></button>
+                      <button type="button" class="btn btn-white container-fluid" data-bs-dismiss="offcanvas"><a class="nav-link" href="#!contact">Contact</a></button>
+                  </div>
+                </div>
+          </nav>
+      </div>
+  </div>
+  <div style="height:45px;"></div>
     <div ng-view></div>
     <div class="footer"></div>
   </div>

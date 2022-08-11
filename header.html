@@ -12,7 +12,18 @@
                 <li><a class="nav-link" href="#!/about">About</a></li>
                 <li><a class="nav-link" href="#!/contact">Contact</a></li>
             </ul>
-            <i class="bi bi-list mobile-nav-toggle p-2"></i>
+            <i class="bi bi-list mobile-nav-toggle p-2" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"></i>
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+                <div class="offcanvas-header">
+                  <h5 id="offcanvasRightLabel">Offcanvas right</h5>
+                  <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <a class="nav-link" href="#!">Home</a>
+                    <a class="nav-link" href="#!/about">About</a>
+                    <a class="nav-link" href="#!/contact">Contact</a>
+                </div>
+              </div>
         </nav>
     </div>
 </div>
