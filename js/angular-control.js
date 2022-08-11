@@ -21,11 +21,11 @@ app.config(function ($routeProvider) {
         })
         .when('/about', {
             templateUrl: 'about.html',
-            controller: "",
+            controller: "aboutController",
         })
         .when('/contact', {
             templateUrl: 'contact.html',
-            controller: "",
+            controller: "contactController",
         });
 });
 
@@ -340,10 +340,6 @@ app.controller("parentController", function ($scope, $location, $window) {
         $scope.feedbacks.push($scope.feedbackLC)
     }
 
-
-
-
-
     /**
      * Handle Logout Function by clear localStorage
      */
@@ -351,4 +347,13 @@ app.controller("parentController", function ($scope, $location, $window) {
         $window.localStorage.removeItem('user');
         $location.path('/');
     };
+
+app.controller("aboutController", function ($scope){
+
+});
+
+app.controller("contactController", function ($scope){
+
+});
+
 });
