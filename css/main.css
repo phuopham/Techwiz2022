@@ -149,6 +149,10 @@ body {
     }
 }
 
+.t-75 {
+    font-size: calc(22px + (75 - 22) * ((100vw - 375px) / (1920 - 375)));
+}
+
 /**
  * Footer Section
  */
