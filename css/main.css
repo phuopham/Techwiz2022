@@ -57,6 +57,16 @@ body {
     justify-content: space-between;
 }
 
+.clock {
+    font-size: 16px;
+    padding: 0.75rem 1.5rem !important;
+}
+
+.f-18 {
+    font-size: 18px;
+}
+
+
 /* 2D TRANSITIONS */
 /* Grow */
 .hvr-grow {
@@ -117,10 +127,6 @@ body {
     margin-left: 5px;
 }
 
-.form-check {
-    width: 170px;
-}
-
 /**
   * Mobile Navigation 
 **/
@@ -149,8 +155,13 @@ body {
     }
 }
 
+/* Landing Page Template */
 .t-75 {
     font-size: calc(22px + (75 - 22) * ((100vw - 375px) / (1920 - 375)));
+}
+
+.form-check {
+    width: 170px;
 }
 
 /**

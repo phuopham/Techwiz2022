@@ -348,12 +348,13 @@ app.controller("parentController", function ($scope, $location, $window) {
         $location.path('/');
     };
 
+    
+});
+
 app.controller("aboutController", function ($scope){
 
 });
 
 app.controller("contactController", function ($scope){
-
-});
 
 });
