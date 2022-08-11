@@ -169,7 +169,7 @@ app.controller("studentController", function ($scope, $location, $http, $window)
      * Handle Logout Function by clear localStorage
      */
     $scope.handleLogout = function () {
-        $window.localStorage.clear();
+        $window.localStorage.removeItem('user');
         $location.path('/');
     };
 
@@ -230,7 +230,7 @@ app.controller("teacherController", function ($scope, $location, $http, $window)
      * Handle Logout Function by clear localStorage
      */
     $scope.handleLogout = function () {
-        $window.localStorage.clear();
+        $window.localStorage.removeItem('user');
         $location.path('/');
     };
 });
@@ -247,7 +247,7 @@ app.controller("parentController", function ($scope, $location, $window) {
      * Handle Logout Function by clear localStorage
      */
     $scope.handleLogout = function () {
-        $window.localStorage.clear();
+        $window.localStorage.removeItem('user');
         $location.path('/');
     };
 });
