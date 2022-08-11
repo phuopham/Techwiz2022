@@ -76,6 +76,7 @@ body {
 .hvr-grow:active {
     -webkit-transform: scale(1.1);
     transform: scale(1.1);
+    background-color: #fff;
 }
 
 /*--------------------------------------------------------------
@@ -114,13 +115,6 @@ body {
     font-size: 12px;
     line-height: 0;
     margin-left: 5px;
-}
-
-.navbar a:hover,
-.navbar .active,
-.navbar .active:focus,
-.navbar li:hover>a {
-    background-color: #fff;
 }
 
 .form-check {
