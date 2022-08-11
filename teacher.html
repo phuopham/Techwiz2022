@@ -195,13 +195,11 @@
                     <tr class="table-warning">
                         <td>Subject</td>
                         <td>Resource</td>
-                        <td>Title</td>
                     </tr>
                     <tbody>
                         <tr ng-repeat="rs in src">
                             <td>{{rs.subject}}</td>
-                            <td><a href="{{rs.url}}" target="_blank">Cilck here !</a></td>
-                            <td>{{rs.title}}</td>
+                            <td><a href="{{rs.url}}" target="_blank">{{rs.title}}</a></td>
                         </tr>
                     </tbody>
                 
