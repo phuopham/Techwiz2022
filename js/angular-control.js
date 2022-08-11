@@ -38,82 +38,86 @@ app.controller("loginController", function ($scope, $location, $http) {
     }
     $scope.errMessage = "";
     $scope.handleLogin = function () {
-        $http({
-            method: 'GET',
-            url: './json/students.json',
-            headers: {
-                'Content-Type': 'application/json'
-            } // optional
-        })
-            .then(
-                function (success) {
-                    console.log(success);
-                    // do something when success
-                    let caseErr = true;
-                    switch ($scope.type) {
-                        case 1:
-                            // get data from json
-                            if (Array.isArray(success.data)) {
-                                for (i = 0; i < success.data.length; i++) {
-                                    if ($scope.name == (success.data[i]).name) {
-                                        caseErr = true;
-                                        localStorage.setItem('user', JSON.stringify(success.data[i]));
-                                        alert("Login Success!\nRedirecting to the next page...");
-                                        $location.path('/student');
-                                        break;
-                                    } else {
-                                        caseErr = false;
+        if(!$scope.name || !$scope.type) {
+            alert("eStudies Name and Role can not not empty");
+        } else {
+            $http({
+                method: 'GET',
+                url: './json/students.json',
+                headers: {
+                    'Content-Type': 'application/json'
+                } // optional
+            })
+                .then(
+                    function (success) {
+                        console.log(success);
+                        // do something when success
+                        let caseErr = true;
+                        switch ($scope.type) {
+                            case 1:
+                                // get data from json
+                                if (Array.isArray(success.data)) {
+                                    for (i = 0; i < success.data.length; i++) {
+                                        if ($scope.name == (success.data[i]).name) {
+                                            caseErr = true;
+                                            localStorage.setItem('user', JSON.stringify(success.data[i]));
+                                            alert("Login Success!\nRedirecting to the next page...");
+                                            $location.path('/student');
+                                            break;
+                                        } else {
+                                            caseErr = false;
+                                        };
                                     };
                                 };
-                            };
-                            if (caseErr == false) {
-                                alert("khong khop");
-                            };
-                            break;
-                        case 2:
-                            // get data from json
-                            if (Array.isArray(success.data)) {
-                                for (i = 0; i < success.data.length; i++) {
-                                    if ($scope.name == (success.data[i]).teachername) {
-                                        caseErr = true;
-                                        localStorage.setItem('user', JSON.stringify(success.data[i]));
-                                        alert("Login Success!\nRedirecting to the next page...");
-                                        $location.path('/teacher');
-                                        break;
-                                    } else {
-                                        caseErr = false;
+                                if (caseErr == false) {
+                                    alert("Can not find your eStudies' User");
+                                };
+                                break;
+                            case 2:
+                                // get data from json
+                                if (Array.isArray(success.data)) {
+                                    for (i = 0; i < success.data.length; i++) {
+                                        if ($scope.name == (success.data[i]).teachername) {
+                                            caseErr = true;
+                                            localStorage.setItem('user', JSON.stringify(success.data[i]));
+                                            alert("Login Success!\nRedirecting to the next page...");
+                                            $location.path('/teacher');
+                                            break;
+                                        } else {
+                                            caseErr = false;
+                                        };
                                     };
                                 };
-                            };
-                            if (caseErr == false) {
-                                alert("khong khop");
-                            };
-                            break;
-                        case 3:
-                            // get data from json
-                            if (Array.isArray(success.data)) {
-                                for (i = 0; i < success.data.length; i++) {
-                                    if ($scope.name == (success.data[i]).parents) {
-                                        caseErr = true;
-                                        localStorage.setItem('user', JSON.stringify(success.data[i]));
-                                        alert("Login Success!\nRedirecting to the next page...");
-                                        $location.path('/parent');
-                                        break;
-                                    } else {
-                                        caseErr = false;
+                                if (caseErr == false) {
+                                    alert("Can not find your eStudies' User");
+                                };
+                                break;
+                            case 3:
+                                // get data from json
+                                if (Array.isArray(success.data)) {
+                                    for (i = 0; i < success.data.length; i++) {
+                                        if ($scope.name == (success.data[i]).parents) {
+                                            caseErr = true;
+                                            localStorage.setItem('user', JSON.stringify(success.data[i]));
+                                            alert("Login Success!\nRedirecting to the next page...");
+                                            $location.path('/parent');
+                                            break;
+                                        } else {
+                                            caseErr = false;
+                                        };
                                     };
                                 };
-                            };
-                            if (caseErr == false) {
-                                alert("khong khop");
-                            };
-                            break;
-                    };
-                },
-                function (error) {
-                    // do something when error
-                }
-            );
+                                if (caseErr == false) {
+                                    alert("Can not find your eStudies' User");
+                                };
+                                break;
+                        };
+                    },
+                    function (error) {
+                        // do something when error
+                    }
+                );
+        };
     };
 });
 
