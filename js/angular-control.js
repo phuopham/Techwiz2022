@@ -159,20 +159,23 @@ app.controller("studentController", function ($scope, $location, $http, $window)
             }
         });
    
-    $scope.feedbackSTtoTC = function () {
+   
+    $scope.feedback = []
+    $scope.feedbackLC = JSON.parse(window.localStorage.getItem($scope.name));
+    if($scope.feedbackLC != null){
+        $scope.feedback.push($scope.feedbackLC)
+    }
+
+    $scope.feedbackSTtoTC = function (event) {
         $scope.feedbackofST = {
             "nameST" : $scope.name , 
             "nameTC" : $scope.teacher_revclass ,
             "title" : $scope.titleST ,
             "mess" : $scope.messST
         }
-        localStorage.setItem($scope.name , JSON.stringify($scope.feedbackofST));
+        $scope.feedback.push($scope.feedbackofST);
+      //  localStorage.setItem($scope.name , JSON.stringify($scope.feedbackofST));
     };
-    $scope.feedback = []
-    $scope.feedbackLC = JSON.parse(window.localStorage.getItem($scope.name));
-    if($scope.feedbackLC != null){
-        $scope.feedback.push($scope.feedbackLC)
-    }
     console.log($scope.feedback)
     /**
      * Handle Logout Function by clear localStorage
