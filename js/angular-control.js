@@ -161,7 +161,6 @@ app.controller("studentController", function ($scope, $location, $http, $window)
     $http.get("json/resources.json")
         .then(function (res) {
             $scope.src = res.data;
-            console.log($scope.src[1]['subject'])
         });
 
 
@@ -171,17 +170,24 @@ app.controller("studentController", function ($scope, $location, $http, $window)
         $scope.feedback.push($scope.feedbackLC);
     }
 
+    $scope.titleST = "" ;
+    $scope.messST = "" ;
     $scope.feedbackSTtoTC = function (event) {
-        $scope.feedbackofST = {
-            "nameST": $scope.name,
-            "nameTC": $scope.teacher_revclass,
-            "title": $scope.titleST,
-            "mess": $scope.messST
+        if($scope.titleST != "" && $scope.messST != ""){
+            $scope.feedbackofST = {
+                "nameST": $scope.name,
+                "nameTC": $scope.teacher_revclass,
+                "title": $scope.titleST,
+                "mess": $scope.messST
+            }
+            $scope.feedback.push($scope.feedbackofST);
+            localStorage.setItem($scope.name, JSON.stringify($scope.feedbackofST));
+            $scope.titleST = "";
+            $scope.messST = "";
+            $scope.errors = "";
+        }else{
+            $scope.errors = "Please re-check input data and cannot empty !" ;
         }
-        $scope.feedback.push($scope.feedbackofST);
-        localStorage.setItem($scope.name, JSON.stringify($scope.feedbackofST));
-        $scope.titleST = "";
-        $scope.messST = "";
     };
 
     /**
@@ -238,11 +244,11 @@ app.controller("teacherController", function ($scope, $location, $http, $window)
             $scope.src = res.data;
         });
 
-    $scope.addDoc = function() {
+    $scope.addDoc = function () {
         $scope.list_addDoc = {
-            "subject" : $scope.addDocsubject ,
-            "url": $scope.addDocresource ,
-            "title" : $scope.addDoctitle
+            "subject": $scope.addDocsubject,
+            "url": $scope.addDocresource,
+            "title": $scope.addDoctitle
         }
         $scope.src.push($scope.list_addDoc);
     }
@@ -272,23 +278,38 @@ app.controller("teacherController", function ($scope, $location, $http, $window)
     $scope.del = function (index) {
         $scope.list.splice(index, 1);
     };
+    $scope.addname = "";
+    $scope.addmath = "";
+    $scope.addphysic = "";
+    $scope.addchemist = "";
+    $scope.addprogress = "";
+
     $scope.add = function () {
-        $scope.addlist = {
-            "name": $scope.addname,
-            "mark": {
-                "math": $scope.addmath,
-                "physic": $scope.addphysic,
-                "chemist": $scope.addchemist
-            },
-            "progress": $scope.addprogress
+
+        if ($scope.addname != "" && $scope.addmath != "" && $scope.addphysic != "" && $scope.addchemist != "" && $scope.addprogress != "" && $scope.addmath < 11 && $scope.addphysic < 11) {
+            
+                $scope.addlist = {
+                    "name": $scope.addname,
+                    "mark": {
+                        "math": $scope.addmath,
+                        "physic": $scope.addphysic,
+                        "chemist": $scope.addchemist
+                    },
+                    "progress": $scope.addprogress
+                }
+                $scope.list.push($scope.addlist);
+    
+                $scope.addname = "";
+                $scope.addmath = "";
+                $scope.addphysic = "";
+                $scope.addchemist = "";
+                $scope.addprogress = "";
+                $scope.errors = "";
+            
+        }else {
+            $scope.errors = "Please re-check input data ! ";
         }
-        $scope.list.push($scope.addlist);
-        $scope.addname = "";
-        $scope.addmath = "";
-        $scope.addphysic = "";
-        $scope.addchemist = "";
-        $scope.addprogress = "";
-        ;
+
     }
     $http.get('json/revclass.json')
         .then(function (res2) {
@@ -308,6 +329,12 @@ app.controller("teacherController", function ($scope, $location, $http, $window)
         $scope.time_rev.push($scope.timenew);
         $scope.addtime = "";
         $scope.adddate = "";
+    };
+    $scope.upprogress = function (index) {
+        $scope.list[index]['progress']++;
+    };
+    $scope.downprogress = function (index) {
+        $scope.list[index]['progress']--;
     };
     /**
      * Handle Logout Function by clear localStorage
