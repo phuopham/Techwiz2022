@@ -71,7 +71,7 @@ app.controller("loginController", function ($scope, $location, $http) {
                                     };
                                 };
                                 if (caseErr == false) {
-                                    alert("Can not find your eStudies' User");
+                                    $('#failModal').modal('show');
                                 };
                                 break;
                             case 2:
@@ -91,7 +91,7 @@ app.controller("loginController", function ($scope, $location, $http) {
                                     };
                                 };
                                 if (caseErr == false) {
-                                    alert("Can not find your eStudies' User");
+                                    $('#failModal').modal('show');
                                 };
                                 break;
                             case 3:
@@ -111,7 +111,7 @@ app.controller("loginController", function ($scope, $location, $http) {
                                     };
                                 };
                                 if (caseErr == false) {
-                                    alert("Can not find your eStudies' User");
+                                    $('#failModal').modal('show');
                                 };
                                 break;
                         };
