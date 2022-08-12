@@ -38,13 +38,7 @@ body {
 }
 
 .lp-input-text ~ label {
-    padding: 1.4rem 1.5rem !important;
-    font-size: 1.3em !important;
-}
-
-.lp-input-text:not(:placeholder-shown)~label,
-.lp-input-text:focus ~ label {
-    transform: scale(.65) translateY(-1rem) translateX(0.65rem) !important;
+    padding: 1rem 1.5rem !important;
 }
 
 .lp-input-radio:checked {
