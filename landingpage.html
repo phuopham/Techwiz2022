@@ -50,53 +50,37 @@ background-size: contain, cover; background-position: center;">
     </form>
 </div>
 
-<!-- Success Modal -->
-<div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="successModalTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="successModalTitle">Notification</h5>
-        </div>
-        <div class="modal-body">
-          Successfully Access
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-success" ng-click="handleSuccess()">Access</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
 <!-- Validation Modal -->
-<div class="modal fade" id="validationModal" tabindex="-1" role="dialog" aria-labelledby="validModalTitle" aria-hidden="true">
+<div class="modal fade" id="validationModal" tabindex="-1" role="dialog" aria-labelledby="validModalTitle"
+    aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="validModalTitle">Notification</h5>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="validModalTitle">Notification</h5>
+            </div>
+            <div class="modal-body">
+                eStudiez's Name and Role can not empty !!!
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-warning" ng-click="handleValid()">Close</button>
+            </div>
         </div>
-        <div class="modal-body">
-          eStudiez's Name and Role can not empty !!!
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-warning" ng-click="handleValid()">Close</button>
-        </div>
-      </div>
     </div>
-  </div>
+</div>
 
 <!-- Fail Modal -->
 <div class="modal fade" id="failModal" tabindex="-1" role="dialog" aria-labelledby="failModalTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="failModalTitle">Notification</h5>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="failModalTitle">Notification</h5>
+            </div>
+            <div class="modal-body">
+                Access Failure... Can not find your eStudiez's User
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" ng-click="handleFail()">Close</button>
+            </div>
         </div>
-        <div class="modal-body">
-            Access Failure... Can not find your eStudiez's User
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-danger" ng-click="handleFail()">Close</button>
-        </div>
-      </div>
     </div>
-  </div>
+</div>
