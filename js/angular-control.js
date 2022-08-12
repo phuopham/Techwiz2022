@@ -67,10 +67,6 @@ app.controller("loginController", function ($scope, $location, $http) {
                                         if ($scope.name == (success.data[i]).name) {
                                             caseErr = true;
                                             localStorage.setItem('user', JSON.stringify(success.data[i]));
-                                            $('#successModal').modal('show');
-                                            $scope.handleSuccess = function(){
-                                                $('#successModal').modal('hide');
-                                            };
                                             $location.path('/student');
                                             window.scrollTo(0, 0);
                                             break;
@@ -96,10 +92,6 @@ app.controller("loginController", function ($scope, $location, $http) {
                                         if ($scope.name == (success.data[i]).teachername) {
                                             caseErr = true;
                                             localStorage.setItem('user', JSON.stringify(success.data[i]));
-                                            $('#successModal').modal('show');
-                                            $scope.handleSuccess = function(){
-                                                $('#successModal').modal('hide');
-                                            };
                                             $location.path('/teacher');
                                             window.scrollTo(0, 0);
                                             break;
@@ -125,10 +117,6 @@ app.controller("loginController", function ($scope, $location, $http) {
                                         if ($scope.name == (success.data[i]).parents) {
                                             caseErr = true;
                                             localStorage.setItem('user', JSON.stringify(success.data[i]));
-                                            $('#successModal').modal('show');
-                                            $scope.handleSuccess = function(){
-                                                $('#successModal').modal('hide');
-                                            };
                                             $location.path('/parent');
                                             window.scrollTo(0, 0);
                                             break;
