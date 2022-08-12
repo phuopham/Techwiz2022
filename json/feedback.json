@@ -2,49 +2,49 @@
     {
         "from":"Nguyen Hoang Nam" ,
         "to":"Le Kim Tung" ,
-        "title":"Please " ,
-        "message":"Nguyen Hoang Nam" 
+        "title":"Hi Mr.Tung" ,
+        "message":"I really enjoy your math class!" 
     },
     {
         "from":"Nguyen Hoang A" ,
         "to":"Le Kim Tung" ,
-        "title":"" ,
-        "message": "Nguyen Hoang A"
+        "title":"I have a question." ,
+        "message": "I don't understand today's lesson, please explain again!"
     },
     {
         "from":"Nguyen Hoang V" ,
         "to":"Tran Duy A" ,
-        "title":"" ,
-        "message": "Nguyen Hoang V"
+        "title":"Hello Mr.A" ,
+        "message": "I want to learn more about today's lession!"
     },
     {
         "from":"Nguyen Hoang S" ,
         "to":"Tran Duy A" ,
-        "title":"" ,
-        "message": "Nguyen Hoang S"
+        "title":"Please help me" ,
+        "message": "I can't solve math homework."
     },
     {
         "from":"Tran Duy Anh" ,
         "to":"Le Kim Tung" ,
-        "title": "",
-        "message": ""
+        "title": "Please contact me",
+        "message": "I have some issues to discuss about my son Nguyen Hoang Nam."
     },
     {
         "from":"Tran Toan" ,
         "to":"Le Kim Tung" ,
-        "title":"" ,
-        "message": ""
+        "title":"Hello Mr.Tung" ,
+        "message": "Can i meet you tomorrow!"
     },
     {
         "from":"Le Kim Tu" ,
         "to":"Tran Duy A" ,
-        "title": "",
-        "message": ""
+        "title": "About math class",
+        "message": "Hi Mr.Tung. I want to discuss about your math class."
     },
     {
         "from":"Tran Duc" ,
         "to":"Tran Duy A" ,
-        "title": "",
-        "message": ""
+        "title": "About my son",
+        "message": "Hello Mr.A. I want my child to miss school tomorrow!"
     }
 ]
