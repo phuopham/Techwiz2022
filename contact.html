@@ -16,6 +16,10 @@
               <textarea class="form-control rounded-0" style="resize: none;" rows="5" placeholder="Message"
                 ng-model="messCT"></textarea>
             </div>
+            <div>
+              <span class="text-danger">{{errors}}</span>
+              <span class="text-success">{{success}}</span>
+            </div>
             <div class="mt-5">
               <button class="btn btn-warning" type="submit" ng-click="sendContactus()">
                 Send

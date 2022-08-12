@@ -486,6 +486,11 @@ app.controller("contactController", function ($scope) {
             $scope.list_contactus.push($scope.contactus)
             $scope.titleCT = "";
             $scope.messCT = "";
+            $scope.errors = "" ;
+            $scope.success = "Send success" ;
+        }else{
+            $scope.errors = "Please re-check input data and cannot empty !" ;
+            $scope.success = "";
         }
     }
 });
