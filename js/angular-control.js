@@ -576,6 +576,7 @@ app.controller("contactController", function ($scope) {
     $scope.sendContactus = function () {
         if ($scope.titleCT != "" && $scope.messCT != "") {
             $scope.contactus = {
+                "note": "Sent data is:",
                 "title": $scope.titleCT,
                 "mess": $scope.messCT
             }
