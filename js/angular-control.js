@@ -40,6 +40,12 @@ app.controller("loginController", function ($scope, $location, $http) {
     $scope.handleLogin = function () {
         if (!$scope.name || !$scope.type) {
             $('#validationModal').modal('show');
+            $scope.handleValid = function(){
+                $('#validationModal').modal('hide');
+            };
+            window.onclick = function(){
+                $('#validationModal').modal('hide');
+            }
         } else {
             $http({
                 method: 'GET',
@@ -62,6 +68,9 @@ app.controller("loginController", function ($scope, $location, $http) {
                                             caseErr = true;
                                             localStorage.setItem('user', JSON.stringify(success.data[i]));
                                             $('#successModal').modal('show');
+                                            $scope.handleSuccess = function(){
+                                                $('#successModal').modal('hide');
+                                            };
                                             $location.path('/student');
                                             window.scrollTo(0, 0);
                                             break;
@@ -72,6 +81,12 @@ app.controller("loginController", function ($scope, $location, $http) {
                                 };
                                 if (caseErr == false) {
                                     $('#failModal').modal('show');
+                                    $scope.handleFail = function(){
+                                        $('#failModal').modal('hide');
+                                    }
+                                    window.onclick = function(){
+                                        $('#failModal').modal('hide');
+                                    }
                                 };
                                 break;
                             case 2:
@@ -82,6 +97,9 @@ app.controller("loginController", function ($scope, $location, $http) {
                                             caseErr = true;
                                             localStorage.setItem('user', JSON.stringify(success.data[i]));
                                             $('#successModal').modal('show');
+                                            $scope.handleSuccess = function(){
+                                                $('#successModal').modal('hide');
+                                            };
                                             $location.path('/teacher');
                                             window.scrollTo(0, 0);
                                             break;
@@ -92,6 +110,12 @@ app.controller("loginController", function ($scope, $location, $http) {
                                 };
                                 if (caseErr == false) {
                                     $('#failModal').modal('show');
+                                    $scope.handleFail = function(){
+                                        $('#failModal').modal('hide');
+                                    }
+                                    window.onclick = function(){
+                                        $('#failModal').modal('hide');
+                                    }
                                 };
                                 break;
                             case 3:
@@ -102,6 +126,9 @@ app.controller("loginController", function ($scope, $location, $http) {
                                             caseErr = true;
                                             localStorage.setItem('user', JSON.stringify(success.data[i]));
                                             $('#successModal').modal('show');
+                                            $scope.handleSuccess = function(){
+                                                $('#successModal').modal('hide');
+                                            };
                                             $location.path('/parent');
                                             window.scrollTo(0, 0);
                                             break;
@@ -112,6 +139,12 @@ app.controller("loginController", function ($scope, $location, $http) {
                                 };
                                 if (caseErr == false) {
                                     $('#failModal').modal('show');
+                                    $scope.handleFail = function(){
+                                        $('#failModal').modal('hide');
+                                    }
+                                    window.onclick = function(){
+                                        $('#failModal').modal('hide');
+                                    }
                                 };
                                 break;
                         };
@@ -131,6 +164,9 @@ app.controller("studentController", function ($scope, $location, $http, $window)
     if (!localStorage['user']) {
         $location.path('/');
     };
+    $window.onclick = function(){
+        $('#successModal').modal('hide');
+    }
     $scope.student = JSON.parse(window.localStorage.getItem('user'));
     let lst_mark_obj = $scope.student.mark;
 
@@ -226,6 +262,10 @@ app.controller("teacherController", function ($scope, $location, $http, $window)
     if (!localStorage['user']) {
         $location.path('/');
     };
+    $window.onclick = function(){
+        $('#successModal').modal('hide');
+    }
+
     $http.get("json/students.json")
         .then(function (res) {
             // all data 
@@ -439,6 +479,9 @@ app.controller("parentController", function ($scope, $location, $window, $http) 
         $location.path('/');
     };
 
+    $window.onclick = function(){
+        $('#successModal').modal('hide');
+    }
 
     $scope.studentLC = JSON.parse(window.localStorage.getItem('user'));
     $scope.student = $scope.studentLC['name'];

@@ -61,7 +61,7 @@ background-size: contain, cover; background-position: center;">
           Successfully Access
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn btn-success" ng-click="handleSuccess">Access</button>
+            <button type="button" class="btn btn-success" ng-click="handleSuccess()">Access</button>
         </div>
       </div>
     </div>
@@ -78,7 +78,7 @@ background-size: contain, cover; background-position: center;">
           eStudiez's Name and Role can not empty !!!
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn btn-warning" ng-click="">Close</button>
+            <button type="button" class="btn btn-warning" ng-click="handleValid()">Close</button>
         </div>
       </div>
     </div>
@@ -95,7 +95,7 @@ background-size: contain, cover; background-position: center;">
             Access Failure... Can not find your eStudiez's User
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn btn-danger" ng-click="">Close</button>
+            <button type="button" class="btn btn-danger" ng-click="handleFail()">Close</button>
         </div>
       </div>
     </div>
