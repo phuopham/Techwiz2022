@@ -204,6 +204,8 @@ body {
     transform: translateX(12.5rem);
     transition: all 0.4s;
     cursor: pointer;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
 }
 
 .hotline:hover {
