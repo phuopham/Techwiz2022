@@ -487,7 +487,7 @@ app.controller("contactController", function ($scope) {
             $scope.titleCT = "";
             $scope.messCT = "";
             $scope.errors = "" ;
-            $scope.success = "Send success" ;
+            $scope.success = "We received your message ! Thank you contact us" ;
         }else{
             $scope.errors = "Please re-check input data and cannot empty !" ;
             $scope.success = "";
