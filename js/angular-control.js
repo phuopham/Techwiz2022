@@ -205,14 +205,9 @@ app.controller("studentController", function ($scope, $location, $http, $window)
             $scope.errors = "Please re-check input data and cannot empty !";
         }
     };
-    $scope.advice = [] ;
+
     $scope.adviceLC = JSON.parse(window.localStorage.getItem('advice'));
-    console.log($scope.student['teachername'])
-    if($scope.adviceLC['tcname'] == $scope.student['teachername']){
-        $scope.advice.push($scope.adviceLC);
-        console.log($scope.advice)
-        console.log($scope.adviceLC)
-    }
+
 
     /**
      * Handle Logout Function by clear localStorage
