@@ -327,7 +327,7 @@ app.controller("teacherController", function ($scope, $location, $http, $window)
             $scope.addDocsubject = "";
             $scope.addDocresource = "";
             $scope.addDoctitle = "";
-            
+
             $scope.errorsadddoc = "";
         } else {
             $scope.errorsadddoc = "Please re-check input data and cannot empty !";
@@ -366,7 +366,8 @@ app.controller("teacherController", function ($scope, $location, $http, $window)
     $scope.addprogress = "";
 
     $scope.add = function () {
-
+        $scope.errorsaddst = "";
+        $scope.successaddst = "";
         if ($scope.addname != "" && $scope.addmath != "" && $scope.addphysic != "" && $scope.addchemist != "" && $scope.addprogress != "" && $scope.addmath < 11 && $scope.addphysic < 11) {
 
             $scope.addlist = {
@@ -397,7 +398,6 @@ app.controller("teacherController", function ($scope, $location, $http, $window)
             } else {
                 $scope.errorsaddst = "Duplicate student name!";
             }
-
 
         } else {
             $scope.errorsaddst = "Please re-check input data ! ";
@@ -433,12 +433,15 @@ app.controller("teacherController", function ($scope, $location, $http, $window)
     };
     $scope.upprogress = function (index) {
         $scope.list[index]['progress']++;
-        if ($scope.list[index]['progress'] == 101) {
+        if ($scope.list[index]['progress'] > 100) {
             $scope.list[index]['progress']--;
         }
     };
     $scope.downprogress = function (index) {
         $scope.list[index]['progress']--;
+        if ($scope.list[index]['progress'] < 0 ) {
+            $scope.list[index]['progress']++;
+        }
     };
     $scope.titleadvice = "";
     $scope.messadvice = "";
