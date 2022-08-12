@@ -3,6 +3,7 @@
         <div>
             <p class="navbar-brand text-weight-bold">Hello: <span class="h3">{{parent}}</span></p>
             <p class="navbar-brand text-weight-bold">Parent of: <span class="h3">{{student}}</span></p>
+            <p class="navbar-brand text-weight-bold">Teacher: <span class="h3">{{teacherparentname}}</span></p>
         </div>
         <button type="button" class="btn btn-danger" ng-click="handleLogout()">Log out</button>
     </div>
@@ -60,7 +61,7 @@
         <div class="col-md-6 my-4">
             <div class="d-flex justify-content-center d-md-block mb-3">
                 <h2>
-                    Feedback
+                    Feedback to teacher {{teacherparentname}}:
                 </h2>
             </div>
             <div>

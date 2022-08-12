@@ -503,6 +503,7 @@ app.controller("parentController", function ($scope, $location, $window, $http) 
     $scope.studentLC = JSON.parse(window.localStorage.getItem('user'));
     $scope.student = $scope.studentLC['name'];
     $scope.parent = $scope.studentLC['parents'];
+    $scope.teacherparentname = $scope.studentLC['teachername'];
     let lst_mark_obj = $scope.studentLC.mark;
 
     let lst_sbuject_name = Object.keys(lst_mark_obj);
