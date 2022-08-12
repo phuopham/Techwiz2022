@@ -205,8 +205,15 @@ app.controller("studentController", function ($scope, $location, $http, $window)
             $scope.errors = "Please re-check input data and cannot empty !";
         }
     };
-
+    $scope.advice = []
     $scope.adviceLC = JSON.parse(window.localStorage.getItem('advice'));
+    if ($scope.adviceLC != null) {
+        $scope.checktc = $scope.adviceLC['tcname'];
+
+        if ($scope.adviceLC != null && ($scope.checktc == $scope.student['teachername'])) {
+            $scope.advice.push($scope.adviceLC);
+        };
+    }
 
 
     /**
