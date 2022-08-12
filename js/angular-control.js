@@ -77,12 +77,6 @@ app.controller("loginController", function ($scope, $location, $http) {
                                 };
                                 if (caseErr == false) {
                                     $('#failModal').modal('show');
-                                    $scope.handleFail = function () {
-                                        $('#failModal').modal('hide');
-                                    }
-                                    window.onclick = function () {
-                                        $('#failModal').modal('hide');
-                                    }
                                 };
                                 break;
                             case 2:
@@ -102,12 +96,6 @@ app.controller("loginController", function ($scope, $location, $http) {
                                 };
                                 if (caseErr == false) {
                                     $('#failModal').modal('show');
-                                    $scope.handleFail = function () {
-                                        $('#failModal').modal('hide');
-                                    }
-                                    window.onclick = function () {
-                                        $('#failModal').modal('hide');
-                                    }
                                 };
                                 break;
                             case 3:
@@ -127,12 +115,6 @@ app.controller("loginController", function ($scope, $location, $http) {
                                 };
                                 if (caseErr == false) {
                                     $('#failModal').modal('show');
-                                    $scope.handleFail = function () {
-                                        $('#failModal').modal('hide');
-                                    }
-                                    window.onclick = function () {
-                                        $('#failModal').modal('hide');
-                                    }
                                 };
                                 break;
                         };
@@ -358,8 +340,18 @@ app.controller("teacherController", function ($scope, $location, $http, $window)
         $scope.list[index]['teachername'] = $scope.teachername;
 
     };
+    $scope.cfdel = "";
     $scope.del = function (index) {
-        $scope.list.splice(index, 1);
+        $scope.confirmdel = function () {
+            $scope.cfdel = 1;
+            console.log($scope.cfdel)
+            if ($scope.cfdel == 1) {
+                $scope.list.splice(index, 1);
+            }
+
+
+        };
+
     };
     $scope.addname = "";
     $scope.addmath = "";
@@ -441,7 +433,7 @@ app.controller("teacherController", function ($scope, $location, $http, $window)
     };
     $scope.downprogress = function (index) {
         $scope.list[index]['progress']--;
-        if ($scope.list[index]['progress'] < 0 ) {
+        if ($scope.list[index]['progress'] < 0) {
             $scope.list[index]['progress']++;
         }
     };

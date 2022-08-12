@@ -37,7 +37,7 @@
                             </button>
                         </td>
                         <td>
-                            <button class="btn btn-danger" ng-click="del($index)">
+                            <button class="btn btn-danger" data-toggle="modal" data-target="#deleteModal" ng-click="del($index)">
                                 <i class="bi bi-trash3"></i>
                             </button>
                         </td>
@@ -179,7 +179,7 @@
             <div class="ps-3">
                 Add next Schedule
             </div>
-            <form action="">
+            
                 <div class="mb-3">
                     <input type="text" class="form-control" placeholder="YYYY/mm/DD" ng-model="adddate">
                     <input type="text" class="form-control" placeholder="00:00:00" ng-model="addtime">
@@ -190,7 +190,7 @@
                 <div class="d-flex justify-content-end">
                     <button class="btn btn-warning" ng-click="addschedule()">Add schedule</button>
                 </div>
-            </form>
+            
         </div>
         <div class="col-md-6 my-4">
             <div class="d-flex justify-content-center d-md-block mb-3">
@@ -297,6 +297,25 @@
         <div class="d-none d-md-block col-md-6">
             <div class="contact_img-box">
                 <img src="images/students.jpg" alt="">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Confirm Delete Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteModalTitle">Alert !!!</h5>
+            </div>
+            <div class="modal-body">
+                Are you sure to delete field ?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" ng-click="confirmdel()" data-dismiss="modal">Confirm</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
             </div>
         </div>
     </div>
