@@ -390,6 +390,9 @@ app.controller("teacherController", function ($scope, $location, $http, $window)
     };
     $scope.upprogress = function (index) {
         $scope.list[index]['progress']++;
+        if($scope.list[index]['progress'] == 101){
+            $scope.list[index]['progress']-- ;
+        }
     };
     $scope.downprogress = function (index) {
         $scope.list[index]['progress']--;
