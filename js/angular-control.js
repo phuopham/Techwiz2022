@@ -335,30 +335,30 @@ app.controller("teacherController", function ($scope, $location, $http, $window)
                 },
                 "progress": $scope.addprogress
             }
-            
+
             const isDublicate = $scope.list
-                                ?.filter(item => item.name.toLowerCase().trim() 
-                                    == $scope.addname.toLowerCase().trim())
-                                    .length > 0
-            if(!isDublicate) {
+                ?.filter(item => item.name.toLowerCase().trim()
+                    == $scope.addname.toLowerCase().trim())
+                .length > 0
+            if (!isDublicate) {
                 $scope.list.push($scope.addlist);
-            
+
                 $scope.addname = "";
                 $scope.addmath = "";
                 $scope.addphysic = "";
                 $scope.addchemist = "";
                 $scope.addprogress = "";
                 $scope.errorsaddst = "";
-                $scope.errorsaddst = "" ;
-                $scope.successaddst = "Add student success !" ;
-            }else {
-                $scope.errorsaddst = "Da co";
+                $scope.errorsaddst = "";
+                $scope.successaddst = "Add student success !";
+            } else {
+                $scope.errorsaddst = "Duplicate student name!";
             }
-            
+
 
         } else {
             $scope.errorsaddst = "Please re-check input data ! ";
-            $scope.successaddst = "" ;
+            $scope.successaddst = "";
         }
 
     }
@@ -390,13 +390,33 @@ app.controller("teacherController", function ($scope, $location, $http, $window)
     };
     $scope.upprogress = function (index) {
         $scope.list[index]['progress']++;
-        if($scope.list[index]['progress'] == 101){
-            $scope.list[index]['progress']-- ;
+        if ($scope.list[index]['progress'] == 101) {
+            $scope.list[index]['progress']--;
         }
     };
     $scope.downprogress = function (index) {
         $scope.list[index]['progress']--;
     };
+    $scope.titleadvice = "";
+    $scope.messadvice = "";
+    $scope.list_advice = [];
+    $scope.sendadvice = function () {
+        if ($scope.titleadvice == "" && $scope.messadvice == "") {
+            $scope.erroradvice = "Please re-check input data and cannot update !"
+            $scope.success = "";
+        } else if ($scope.messadvice) {
+            $scope.erroradvice = "Message max 100 characters allow";
+        } else {
+            $scope.send = {
+                "tcname": $scope.teachername,
+                "titleadvice": $scope.titleadvice,
+                "messadvice": $scope.messadvice
+            }
+            window.localStorage.setItem('advice', $scope.send);
+            $scope.success = "Send success !";
+            $scope.erroradvice = "";
+        }
+    }
     /**
      * Handle Logout Function by clear localStorage
      */
@@ -444,10 +464,10 @@ app.controller("parentController", function ($scope, $location, $window, $http) 
                 }
             }
         });
-    $scope.title = "" ;
-    $scope.mess = "" ;
+    $scope.title = "";
+    $scope.mess = "";
     $scope.feedback = function () {
-        if($scope.title != "" && $scope.mess != ""){
+        if ($scope.title != "" && $scope.mess != "") {
             $scope.feedbackofST = {
                 "nameST": $scope.studentLC['parents'],
                 "nameTC": $scope.studentLC['teachername'],
@@ -458,11 +478,11 @@ app.controller("parentController", function ($scope, $location, $window, $http) 
             localStorage.setItem($scope.parent, JSON.stringify($scope.feedbackofST));
             $scope.title = "";
             $scope.mess = "";
-            $scope.errors = "" ;
+            $scope.errors = "";
             $scope.successFB = "Send feedback success !";
-        }else {
-            $scope.errors = "Please re-check input data and cannot empty !" ;
-            $scope.successFB = "" ;
+        } else {
+            $scope.errors = "Please re-check input data and cannot empty !";
+            $scope.successFB = "";
         }
     };
 
@@ -478,8 +498,6 @@ app.controller("parentController", function ($scope, $location, $window, $http) 
         $window.localStorage.removeItem('user');
         $location.path('/');
     };
-
-
 });
 
 app.controller("aboutController", function ($scope) {
@@ -499,10 +517,10 @@ app.controller("contactController", function ($scope) {
             $scope.list_contactus.push($scope.contactus)
             $scope.titleCT = "";
             $scope.messCT = "";
-            $scope.errors = "" ;
-            $scope.success = "Send success !" ;
-        }else{
-            $scope.errors = "Please re-check input data and cannot empty !" ;
+            $scope.errors = "";
+            $scope.success = "Send success !";
+        } else {
+            $scope.errors = "Please re-check input data and cannot empty !";
             $scope.success = "";
         }
     }

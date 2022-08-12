@@ -51,6 +51,8 @@
         </div>
         <nav id="navbar" class="navbar">
           <ul>
+            <li>Visitor: </li>
+            <li class="website-counter px-2"></li>
             <li><a class="nav-link hvr-grow" href="#!">Home</a></li>
             <li><a class="nav-link hvr-grow" href="#!/about">About</a></li>
             <li><a class="nav-link hvr-grow" href="#!/contact">Contact</a></li>
@@ -83,16 +85,16 @@
           <a class="nav-link" href="https://aptechvietnam.com.vn/" target="_blank"> TechWiz 2022</a>
         </div>
         <div class="col d-flex justify-content-end mt-2">
-            Contact us:
-            <a class="nav-link foot-link" data-toggle="modal" data-target="#teamModal">HelloWorld.txt</a>
+          Contact us:
+          <a class="nav-link foot-link" data-toggle="modal" data-target="#teamModal">HelloWorld.txt</a>
         </div>
         <div class="col d-flex justify-content-end mt-2 mb-2">
-            Mail:
-            <a class="nav-link foot-link" href="mailto:helloworld.txt.job@aptechlearning.edu.vn">
-              helloworld.txt.job@aptechlearning.edu.vn
-            </a>
+          Mail:
+          <a class="nav-link foot-link" href="mailto:helloworld.txt.job@aptechlearning.edu.vn">
+            helloworld.txt.job@aptechlearning.edu.vn
+          </a>
         </div>
-        <!-- Modal -->
+        <!-- Modal team picture -->
         <div class="modal fade" id="teamModal" tabindex="-1" role="dialog" aria-labelledby="teamModalLabel"
           aria-hidden="true">
           <div class="modal-dialog" role="document">
@@ -130,7 +132,6 @@
   </div>
 
   <!-- clock -->
-
   <script>
     //clock and location button
     $('.clock').on('click', () => {
@@ -195,10 +196,22 @@
   <!-- Add JavaScript Main File -->
   <script src="./js/main.js"></script>
   <!-- geo -->
-  <!-- <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpuhPAXBFKTzK1P7n9vSW87mZtZBSG408&libraries=places&callback=showMap"></script> -->
   <script src="./js/geo.js"></script>
-</body>
 
+  <script>
+    var counterContainer = document.querySelector(".website-counter");
+    var visitCount = localStorage.getItem("page_view");
+
+    // Check if page_view entry is present
+    if (visitCount) {
+      visitCount = Number(visitCount) + 1;
+      localStorage.setItem("page_view", visitCount);
+    } else {
+      visitCount = 1;
+      localStorage.setItem("page_view", 1);
+    }
+    counterContainer.innerHTML = visitCount;
+  </script>
+</body>
 
 </html>
