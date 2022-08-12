@@ -169,11 +169,26 @@ app.controller("studentController", function ($scope, $location, $http, $window)
     if ($scope.feedbackLC != null) {
         $scope.feedback.push($scope.feedbackLC);
     }
+    $http.get('json/feedback.json')
+        .then(function (res) {
+            $scope.jsonfeedback = res.data;
+            for (i = 0; i < $scope.jsonfeedback.length; i++) {
+                if ($scope.jsonfeedback[i]['from'] == $scope.name) {
+                    $scope.feedbackofST = {
+                        "nameST": $scope.jsonfeedback[i]['from'],
+                        "nameTC": $scope.jsonfeedback[i]['to'],
+                        "title": $scope.jsonfeedback[i]['title'],
+                        "mess": $scope.jsonfeedback[i]['message']
+                    }
+                    $scope.feedback.push($scope.feedbackofST)
+                }
+            }
+        });
 
-    $scope.titleST = "" ;
-    $scope.messST = "" ;
+    $scope.titleST = "";
+    $scope.messST = "";
     $scope.feedbackSTtoTC = function (event) {
-        if($scope.titleST != "" && $scope.messST != ""){
+        if ($scope.titleST != "" && $scope.messST != "") {
             $scope.feedbackofST = {
                 "nameST": $scope.name,
                 "nameTC": $scope.teacher_revclass,
@@ -185,8 +200,8 @@ app.controller("studentController", function ($scope, $location, $http, $window)
             $scope.titleST = "";
             $scope.messST = "";
             $scope.errors = "";
-        }else{
-            $scope.errors = "Please re-check input data and cannot empty !" ;
+        } else {
+            $scope.errors = "Please re-check input data and cannot empty !";
         }
     };
 
@@ -236,6 +251,20 @@ app.controller("teacherController", function ($scope, $location, $http, $window)
                     $scope.feedback.push(JSON.parse(window.localStorage.getItem($scope.listname[i])));
                 }
             }
+            $http.get("json/feedback.json")
+                .then(function (res) {
+                    $scope.jsonfeedback = res.data;
+                    for (i = 0; i < $scope.jsonfeedback.length; i++) {
+                        if ($scope.jsonfeedback[i]['to'] == $scope.teachername) {
+                            $scope.feedbackofST = {
+                                "nameST": $scope.jsonfeedback[i]['from'],
+                                "title": $scope.jsonfeedback[i]['title'],
+                                "mess": $scope.jsonfeedback[i]['message']
+                            }
+                            $scope.feedback.push($scope.feedbackofST);
+                        }
+                    }
+                });
 
         });
 
@@ -244,13 +273,21 @@ app.controller("teacherController", function ($scope, $location, $http, $window)
             $scope.src = res.data;
         });
 
+    $scope.addDocsubject = "";
+    $scope.addDocresource = "";
+    $scope.addDoctitle = "";
     $scope.addDoc = function () {
-        $scope.list_addDoc = {
-            "subject": $scope.addDocsubject,
-            "url": $scope.addDocresource,
-            "title": $scope.addDoctitle
+        if ($scope.addDocresource != "" && $scope.addDocsubject != "" && $scope.addDoctitle != "") {
+            $scope.list_addDoc = {
+                "subject": $scope.addDocsubject,
+                "url": $scope.addDocresource,
+                "title": $scope.addDoctitle
+            }
+            $scope.src.push($scope.list_addDoc);
+            $scope.errorsadddoc = "";
+        } else {
+            $scope.errorsadddoc = "Please re-check input data and cannot empty !";
         }
-        $scope.src.push($scope.list_addDoc);
     }
 
     $scope.edit = function (index) {
@@ -287,27 +324,27 @@ app.controller("teacherController", function ($scope, $location, $http, $window)
     $scope.add = function () {
 
         if ($scope.addname != "" && $scope.addmath != "" && $scope.addphysic != "" && $scope.addchemist != "" && $scope.addprogress != "" && $scope.addmath < 11 && $scope.addphysic < 11) {
-            
-                $scope.addlist = {
-                    "name": $scope.addname,
-                    "mark": {
-                        "math": $scope.addmath,
-                        "physic": $scope.addphysic,
-                        "chemist": $scope.addchemist
-                    },
-                    "progress": $scope.addprogress
-                }
-                $scope.list.push($scope.addlist);
-    
-                $scope.addname = "";
-                $scope.addmath = "";
-                $scope.addphysic = "";
-                $scope.addchemist = "";
-                $scope.addprogress = "";
-                $scope.errors = "";
-            
-        }else {
-            $scope.errors = "Please re-check input data ! ";
+
+            $scope.addlist = {
+                "name": $scope.addname,
+                "mark": {
+                    "math": $scope.addmath,
+                    "physic": $scope.addphysic,
+                    "chemist": $scope.addchemist
+                },
+                "progress": $scope.addprogress
+            }
+            $scope.list.push($scope.addlist);
+
+            $scope.addname = "";
+            $scope.addmath = "";
+            $scope.addphysic = "";
+            $scope.addchemist = "";
+            $scope.addprogress = "";
+            $scope.errorsaddst = "";
+
+        } else {
+            $scope.errorsaddst = "Please re-check input data ! ";
         }
 
     }
@@ -323,12 +360,19 @@ app.controller("teacherController", function ($scope, $location, $http, $window)
                 }
             }
         });
-
+    $scope.addtime = "";
+    $scope.adddate = "";
     $scope.addschedule = function () {
-        $scope.timenew = $scope.adddate + " " + $scope.addtime
-        $scope.time_rev.push($scope.timenew);
-        $scope.addtime = "";
-        $scope.adddate = "";
+        if ($scope.addtime != "" && $scope.adddate != "") {
+            $scope.timenew = $scope.adddate + " " + $scope.addtime
+            $scope.time_rev.push($scope.timenew);
+            $scope.addtime = "";
+            $scope.adddate = "";
+            $scope.errorsaddschedule = ""
+        } else {
+            $scope.errorsaddschedule = "Plase re-check input data and cannot empty !";
+        }
+
     };
     $scope.upprogress = function (index) {
         $scope.list[index]['progress']++;
@@ -345,7 +389,7 @@ app.controller("teacherController", function ($scope, $location, $http, $window)
     };
 });
 
-app.controller("parentController", function ($scope, $location, $window) {
+app.controller("parentController", function ($scope, $location, $window, $http) {
     /**
      * Block Client Access with Log in
      */
@@ -369,6 +413,20 @@ app.controller("parentController", function ($scope, $location, $window) {
 
     $scope.progress = $scope.studentLC['progress'];
     $scope.feedbacks = [];
+    $http.get("json/feedback.json")
+        .then(function (res) {
+            $scope.jsonfeedback = res.data;
+            for (i = 0; i < $scope.jsonfeedback.length; i++) {
+                if ($scope.jsonfeedback[i]['from'] == $scope.parent) {
+                    $scope.feedbackofST = {
+                        "nameTC": $scope.jsonfeedback[i]['to'],
+                        "title": $scope.jsonfeedback[i]['title'],
+                        "mess": $scope.jsonfeedback[i]['message']
+                    }
+                    $scope.feedbacks.push($scope.feedbackofST);
+                }
+            }
+        });
     $scope.feedback = function () {
         $scope.feedbackofST = {
             "nameST": $scope.studentLC['parents'],
@@ -403,5 +461,18 @@ app.controller("aboutController", function ($scope) {
 });
 
 app.controller("contactController", function ($scope) {
-
+    $scope.titleCT = "";
+    $scope.messCT = "";
+    $scope.list_contactus = [];
+    $scope.sendContactus = function () {
+        if ($scope.titleCT != "" && $scope.messCT != "") {
+            $scope.contactus = {
+                "title": $scope.titleCT,
+                "mess": $scope.messCT
+            }
+            $scope.list_contactus.push($scope.contactus)
+            $scope.titleCT = "";
+            $scope.messCT = "";
+        }
+    }
 });

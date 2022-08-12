@@ -10,19 +10,25 @@
         <div class="contact_form-container">
           <div>
             <div>
-              <input class="form-control rounded-0" type="text" placeholder="Title">
+              <input class="form-control rounded-0" type="text" placeholder="Title" ng-model="titleCT">
             </div>
             <div class="mt-5">
-              <textarea class="form-control rounded-0" style="resize: none;" rows="5" placeholder="Message"></textarea>
+              <textarea class="form-control rounded-0" style="resize: none;" rows="5" placeholder="Message" ng-model="messCT"></textarea>
             </div>
             <div class="mt-5">
-              <button class="btn btn-warning" type="submit">
+              <button class="btn btn-warning" type="submit" ng-click="sendContactus()">
                 Send
               </button>
             </div>
           </div>
         </div>
       </form>
+      <div>
+        <ul ng-repeat="list in list_contactus">
+          <li>{{list.title}}</li>
+          <li>{{list.mess}}</li>
+        </ul>
+      </div>
       <div>
         <!-- Draw here -->
       </div>

@@ -3,48 +3,48 @@
         "from":"Nguyen Hoang Nam" ,
         "to":"Le Kim Tung" ,
         "title":"Please " ,
-        "message": 
+        "message":"Nguyen Hoang Nam" 
     },
     {
         "from":"Nguyen Hoang A" ,
         "to":"Le Kim Tung" ,
-        "title": ,
-        "message": 
+        "title":"" ,
+        "message": "Nguyen Hoang A"
     },
     {
         "from":"Nguyen Hoang V" ,
         "to":"Tran Duy A" ,
-        "title": ,
-        "message": 
+        "title":"" ,
+        "message": "Nguyen Hoang V"
     },
     {
         "from":"Nguyen Hoang S" ,
         "to":"Tran Duy A" ,
-        "title": ,
-        "message": 
+        "title":"" ,
+        "message": "Nguyen Hoang S"
     },
     {
         "from":"Tran Duy Anh" ,
         "to":"Le Kim Tung" ,
-        "title": ,
-        "message": 
+        "title": "",
+        "message": ""
     },
     {
         "from":"Tran Toan" ,
         "to":"Le Kim Tung" ,
-        "title": ,
-        "message": 
+        "title":"" ,
+        "message": ""
     },
     {
         "from":"Le Kim Tu" ,
         "to":"Tran Duy A" ,
-        "title": ,
-        "message": 
+        "title": "",
+        "message": ""
     },
     {
         "from":"Tran Duc" ,
         "to":"Tran Duy A" ,
-        "title": ,
-        "message": 
+        "title": "",
+        "message": ""
     }
 ]
