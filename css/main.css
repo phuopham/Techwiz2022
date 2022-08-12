@@ -178,13 +178,30 @@ body {
     }
 }
 
-/* Landing Page Template */
+/** 
+*Landing Page Template 
+*/
 .t-75 {
     font-size: calc(22px + (75 - 22) * ((100vw - 375px) / (1920 - 375)));
 }
 
 .form-check {
     width: 170px;
+}
+
+/* Temlate Hotline */
+.hotline {
+    position: fixed;
+    top: 50vh;
+    right: 0;
+    opacity: 0.7;
+    transform: translateX(9.5rem);
+    transition: all 0.4s;
+    cursor: pointer;
+}
+
+.hotline:hover {
+    transform: translateX(0);    
 }
 
 /**
