@@ -19,6 +19,10 @@ body {
     background-size: cover;
 }
 
+textarea {
+    resize: none;
+}
+
 
 /*--------------------------------------------------------------
 # Edit bootstrap Class
@@ -240,8 +244,4 @@ img {
 
 .foot-link:hover {
     text-decoration: underline;
-}
-
-textarea {
-    resize: none;
 }
