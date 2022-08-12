@@ -335,16 +335,26 @@ app.controller("teacherController", function ($scope, $location, $http, $window)
                 },
                 "progress": $scope.addprogress
             }
-            $scope.list.push($scope.addlist);
-
-            $scope.addname = "";
-            $scope.addmath = "";
-            $scope.addphysic = "";
-            $scope.addchemist = "";
-            $scope.addprogress = "";
-            $scope.errorsaddst = "";
-            $scope.errorsaddst = "" ;
-            $scope.successaddst = "Add student success !" ;
+            
+            const isDublicate = $scope.list
+                                ?.filter(item => item.name.toLowerCase().trim() 
+                                    == $scope.addname.toLowerCase().trim())
+                                    .length > 0
+            if(!isDublicate) {
+                $scope.list.push($scope.addlist);
+            
+                $scope.addname = "";
+                $scope.addmath = "";
+                $scope.addphysic = "";
+                $scope.addchemist = "";
+                $scope.addprogress = "";
+                $scope.errorsaddst = "";
+                $scope.errorsaddst = "" ;
+                $scope.successaddst = "Add student success !" ;
+            }else {
+                $scope.errorsaddst = "Da co";
+            }
+            
 
         } else {
             $scope.errorsaddst = "Please re-check input data ! ";
@@ -487,7 +497,7 @@ app.controller("contactController", function ($scope) {
             $scope.titleCT = "";
             $scope.messCT = "";
             $scope.errors = "" ;
-            $scope.success = "Send success" ;
+            $scope.success = "Send success !" ;
         }else{
             $scope.errors = "Please re-check input data and cannot empty !" ;
             $scope.success = "";
