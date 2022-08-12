@@ -10,13 +10,18 @@
         <div class="col-md-2"></div>
         <!-- annoucement -->
         <div class="col-md-8">
+            <div class="d-flex justify-content-center">
+                <h2>
+                    Teacher's advice
+                </h2>
+            </div>
             <div class="container-fluid p-5 text-center" style="background-image: url('images/blackboard.png');  background-repeat: no-repeat;
 background-size: contain, cover; background-position: center; height:100%; min-height: 250px;">
                 <!-- <p class="lead fw-normal text-white content-text mx-5 px-5">
                     Everyone learns in different ways.</p> -->
-                    <h5>Advice for student </h5>
-                    <h3 class="lead fw-normal text-white content-text mx-5 px-5">{{advice[0].titleadvice}}</h3>
-                    <p class="lead fw-normal text-white content-text mx-5 px-5">{{advice[0].messadvice}}</p>
+
+                <h3 class="lead fw-normal text-white content-text mx-5 px-5">{{advice[0].titleadvice}}</h3>
+                <p class="lead fw-normal text-white content-text mx-5 px-5">{{advice[0].messadvice}}</p>
             </div>
         </div>
         <div class="col-md-2"></div>
@@ -117,30 +122,6 @@ background-size: contain, cover; background-position: center; height:100%; min-h
 </div>
 
 <!-- feedback -->
-<div class="container my-5" id="feedback">
-    <div class="d-flex justify-content-center d-md-block mb-3">
-        <h2>
-            Feedback
-        </h2>
-    </div>
-    <div>
-        <table class="table">
-            <tr class="table-warning">
-                <td>To</td>
-                <td>Title</td>
-                <td>Content</td>
-            </tr>
-            <tbody>
-                <tr ng-repeat="fb in feedback">
-                    <td>{{fb.nameTC}}</td>
-                    <td>{{fb.title}}</td>
-                    <td>{{fb.mess}}</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-</div>
-
 
 <div class="container my-5">
 
@@ -185,13 +166,39 @@ background-size: contain, cover; background-position: center; height:100%; min-h
     </div>
 </div>
 
+<!-- feedback history -->
+
+<div class="container my-5" id="feedback">
+    <div class="d-flex justify-content-center d-md-block mb-3">
+        <h2>
+            Feedback history
+        </h2>
+    </div>
+    <div>
+        <table class="table">
+            <tr class="table-warning">
+                <td>To</td>
+                <td>Title</td>
+                <td>Content</td>
+            </tr>
+            <tbody>
+                <tr ng-repeat="fb in feedback">
+                    <td>{{fb.nameTC}}</td>
+                    <td>{{fb.title}}</td>
+                    <td>{{fb.mess}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
 <!-- hotline -->
 <div class="hotline d-none d-md-flex row bg-warning">
     <div class="col-3 d-flex align-items-center">
         <i class="bi bi-headset"></i>
     </div>
-    <div class="col-9 pe-5">
-        Alo teacher <br>
-        12434536456
+    <div class="col-9 pe-5 text-nowrap">
+        Teacher's phone <br>
+        +84 (0) 93 453 7374
     </div>
 </div>
