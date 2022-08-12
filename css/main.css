@@ -241,3 +241,7 @@ img {
 .foot-link:hover {
     text-decoration: underline;
 }
+
+textarea {
+    resize: none;
+}
