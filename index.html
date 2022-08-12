@@ -49,11 +49,10 @@
             <p class="d-inline fw-bold shadown-text"><span class="text-dark">e</span><span
                 class="text-danger">Studiez</span></p>
           </a>
+          <div class="text-dark ms-4 d-none d-sm-block" style="font-size: 0.8rem;">- Visitor: <span class="website-counter"></span> -</div>
         </div>
         <nav id="navbar" class="navbar">
           <ul>
-            <li>Visitor: </li>
-            <li class="website-counter px-2"></li>
             <li><a class="nav-link hvr-grow" href="#!">Home</a></li>
             <li><a class="nav-link hvr-grow" href="#!/about">About</a></li>
             <li><a class="nav-link hvr-grow" href="#!/contact">Contact</a></li>
@@ -73,6 +72,7 @@
                   class="nav-link" href="#!about">About</a></button>
               <button type="button" class="btn btn-white container-fluid" data-bs-dismiss="offcanvas"><a
                   class="nav-link" href="#!contact">Contact</a></button>
+              <div class="text-dark mt-5 ms-4 text-center" style="font-size: 0.8rem;">- Visitor: <span class="website-counter-mobile"></span> -</div>
             </div>
           </div>
         </nav>
@@ -212,6 +212,8 @@
       localStorage.setItem("page_view", 1);
     }
     counterContainer.innerHTML = visitCount;
+
+    document.querySelector(".website-counter-mobile").innerHTML = visitCount;
   </script>
 </body>
 
