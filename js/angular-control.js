@@ -40,10 +40,10 @@ app.controller("loginController", function ($scope, $location, $http) {
     $scope.handleLogin = function () {
         if (!$scope.name || !$scope.type) {
             $('#validationModal').modal('show');
-            $scope.handleValid = function(){
+            $scope.handleValid = function () {
                 $('#validationModal').modal('hide');
             };
-            window.onclick = function(){
+            window.onclick = function () {
                 $('#validationModal').modal('hide');
             }
         } else {
@@ -67,10 +67,6 @@ app.controller("loginController", function ($scope, $location, $http) {
                                         if ($scope.name == (success.data[i]).name) {
                                             caseErr = true;
                                             localStorage.setItem('user', JSON.stringify(success.data[i]));
-                                            $('#successModal').modal('show');
-                                            $scope.handleSuccess = function(){
-                                                $('#successModal').modal('hide');
-                                            };
                                             $location.path('/student');
                                             window.scrollTo(0, 0);
                                             break;
@@ -81,10 +77,10 @@ app.controller("loginController", function ($scope, $location, $http) {
                                 };
                                 if (caseErr == false) {
                                     $('#failModal').modal('show');
-                                    $scope.handleFail = function(){
+                                    $scope.handleFail = function () {
                                         $('#failModal').modal('hide');
                                     }
-                                    window.onclick = function(){
+                                    window.onclick = function () {
                                         $('#failModal').modal('hide');
                                     }
                                 };
@@ -96,10 +92,6 @@ app.controller("loginController", function ($scope, $location, $http) {
                                         if ($scope.name == (success.data[i]).teachername) {
                                             caseErr = true;
                                             localStorage.setItem('user', JSON.stringify(success.data[i]));
-                                            $('#successModal').modal('show');
-                                            $scope.handleSuccess = function(){
-                                                $('#successModal').modal('hide');
-                                            };
                                             $location.path('/teacher');
                                             window.scrollTo(0, 0);
                                             break;
@@ -110,10 +102,10 @@ app.controller("loginController", function ($scope, $location, $http) {
                                 };
                                 if (caseErr == false) {
                                     $('#failModal').modal('show');
-                                    $scope.handleFail = function(){
+                                    $scope.handleFail = function () {
                                         $('#failModal').modal('hide');
                                     }
-                                    window.onclick = function(){
+                                    window.onclick = function () {
                                         $('#failModal').modal('hide');
                                     }
                                 };
@@ -125,10 +117,6 @@ app.controller("loginController", function ($scope, $location, $http) {
                                         if ($scope.name == (success.data[i]).parents) {
                                             caseErr = true;
                                             localStorage.setItem('user', JSON.stringify(success.data[i]));
-                                            $('#successModal').modal('show');
-                                            $scope.handleSuccess = function(){
-                                                $('#successModal').modal('hide');
-                                            };
                                             $location.path('/parent');
                                             window.scrollTo(0, 0);
                                             break;
@@ -139,10 +127,10 @@ app.controller("loginController", function ($scope, $location, $http) {
                                 };
                                 if (caseErr == false) {
                                     $('#failModal').modal('show');
-                                    $scope.handleFail = function(){
+                                    $scope.handleFail = function () {
                                         $('#failModal').modal('hide');
                                     }
-                                    window.onclick = function(){
+                                    window.onclick = function () {
                                         $('#failModal').modal('hide');
                                     }
                                 };
@@ -164,7 +152,7 @@ app.controller("studentController", function ($scope, $location, $http, $window)
     if (!localStorage['user']) {
         $location.path('/');
     };
-    $window.onclick = function(){
+    $window.onclick = function () {
         $('#successModal').modal('hide');
     }
     $scope.student = JSON.parse(window.localStorage.getItem('user'));
@@ -269,7 +257,7 @@ app.controller("teacherController", function ($scope, $location, $http, $window)
     if (!localStorage['user']) {
         $location.path('/');
     };
-    $window.onclick = function(){
+    $window.onclick = function () {
         $('#successModal').modal('hide');
     }
 
@@ -335,6 +323,11 @@ app.controller("teacherController", function ($scope, $location, $http, $window)
                 "title": $scope.addDoctitle
             }
             $scope.src.push($scope.list_addDoc);
+
+            $scope.addDocsubject = "";
+            $scope.addDocresource = "";
+            $scope.addDoctitle = "";
+            
             $scope.errorsadddoc = "";
         } else {
             $scope.errorsadddoc = "Please re-check input data and cannot empty !";
@@ -486,7 +479,7 @@ app.controller("parentController", function ($scope, $location, $window, $http) 
         $location.path('/');
     };
 
-    $window.onclick = function(){
+    $window.onclick = function () {
         $('#successModal').modal('hide');
     }
 
