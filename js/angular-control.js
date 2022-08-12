@@ -39,7 +39,7 @@ app.controller("loginController", function ($scope, $location, $http) {
     $scope.errMessage = "";
     $scope.handleLogin = function () {
         if (!$scope.name || !$scope.type) {
-            alert("eStudiez Name and Role can not empty");
+            $('#validationModal').modal('show');
         } else {
             $http({
                 method: 'GET',
@@ -61,7 +61,7 @@ app.controller("loginController", function ($scope, $location, $http) {
                                         if ($scope.name == (success.data[i]).name) {
                                             caseErr = true;
                                             localStorage.setItem('user', JSON.stringify(success.data[i]));
-                                            alert("Login Success!\nRedirecting to the next page...");
+                                            $('#successModal').modal('show');
                                             $location.path('/student');
                                             window.scrollTo(0, 0);
                                             break;
@@ -81,7 +81,7 @@ app.controller("loginController", function ($scope, $location, $http) {
                                         if ($scope.name == (success.data[i]).teachername) {
                                             caseErr = true;
                                             localStorage.setItem('user', JSON.stringify(success.data[i]));
-                                            alert("Login Success!\nRedirecting to the next page...");
+                                            $('#successModal').modal('show');
                                             $location.path('/teacher');
                                             window.scrollTo(0, 0);
                                             break;
@@ -101,7 +101,7 @@ app.controller("loginController", function ($scope, $location, $http) {
                                         if ($scope.name == (success.data[i]).parents) {
                                             caseErr = true;
                                             localStorage.setItem('user', JSON.stringify(success.data[i]));
-                                            alert("Login Success!\nRedirecting to the next page...");
+                                            $('#successModal').modal('show');
                                             $location.path('/parent');
                                             window.scrollTo(0, 0);
                                             break;
