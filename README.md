@@ -7,6 +7,7 @@
 
  Language use:
   HTML, CSS, Javascript
+  <br>
  Framework use:
   Boostrap, AngularJs
 
