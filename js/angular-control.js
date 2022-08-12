@@ -212,6 +212,8 @@ app.controller("studentController", function ($scope, $location, $http, $window)
     $scope.titleST = "";
     $scope.messST = "";
     $scope.feedbackSTtoTC = function (event) {
+        $scope.errors = "";
+        $scope.successFB = "";
         if ($scope.titleST != "" && $scope.messST != "") {
             $scope.feedbackofST = {
                 "nameST": $scope.name,
