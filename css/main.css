@@ -231,3 +231,12 @@ img {
     margin-bottom: 10px;
 }
 
+.foot-link {
+    cursor: pointer; 
+    margin-left: 4px;
+}
+
+.foot-link:hover {
+    text-decoration: underline;
+}
+
