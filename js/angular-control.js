@@ -200,6 +200,7 @@ app.controller("studentController", function ($scope, $location, $http, $window)
             $scope.titleST = "";
             $scope.messST = "";
             $scope.errors = "";
+            $scope.successFB = "Send feedback success !";
         } else {
             $scope.errors = "Please re-check input data and cannot empty !";
         }
@@ -342,9 +343,12 @@ app.controller("teacherController", function ($scope, $location, $http, $window)
             $scope.addchemist = "";
             $scope.addprogress = "";
             $scope.errorsaddst = "";
+            $scope.errorsaddst = "" ;
+            $scope.successaddst = "Add student success !" ;
 
         } else {
             $scope.errorsaddst = "Please re-check input data ! ";
+            $scope.successaddst = "" ;
         }
 
     }
@@ -427,17 +431,26 @@ app.controller("parentController", function ($scope, $location, $window, $http) 
                 }
             }
         });
+    $scope.title = "" ;
+    $scope.mess = "" ;
     $scope.feedback = function () {
-        $scope.feedbackofST = {
-            "nameST": $scope.studentLC['parents'],
-            "nameTC": $scope.studentLC['teachername'],
-            "title": $scope.title,
-            "mess": $scope.mess
+        if($scope.title != "" && $scope.mess != ""){
+            $scope.feedbackofST = {
+                "nameST": $scope.studentLC['parents'],
+                "nameTC": $scope.studentLC['teachername'],
+                "title": $scope.title,
+                "mess": $scope.mess
+            }
+            $scope.feedbacks.push($scope.feedbackofST);
+            localStorage.setItem($scope.parent, JSON.stringify($scope.feedbackofST));
+            $scope.title = "";
+            $scope.mess = "";
+            $scope.errors = "" ;
+            $scope.successFB = "Send feedback success !";
+        }else {
+            $scope.errors = "Please re-check input data and cannot empty !" ;
+            $scope.successFB = "" ;
         }
-        $scope.feedbacks.push($scope.feedbackofST);
-        localStorage.setItem($scope.parent, JSON.stringify($scope.feedbackofST));
-        $scope.title = "";
-        $scope.mess = "";
     };
 
     $scope.feedbackLC = JSON.parse(window.localStorage.getItem($scope.parent));
