@@ -97,6 +97,15 @@ body {
 /*--------------------------------------------------------------
 # Navigation Menu
 --------------------------------------------------------------*/
+
+/**
+ * Logo Navigation 
+*/
+.img-logo {
+    max-height: 30px;
+    max-width: 30px;
+}
+
 /**
 * Desktop Navigation 
 **/
@@ -161,6 +170,11 @@ body {
     table.table.tablescroll {
         display: block !important;
         overflow: scroll !important;
+    }
+
+    .img-logo {
+        max-height: 30px;
+        max-width: 30px;
     }
 }
 
