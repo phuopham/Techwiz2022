@@ -205,6 +205,14 @@ app.controller("studentController", function ($scope, $location, $http, $window)
             $scope.errors = "Please re-check input data and cannot empty !";
         }
     };
+    $scope.advice = [] ;
+    $scope.adviceLC = JSON.parse(window.localStorage.getItem('advice'));
+    console.log($scope.student['teachername'])
+    if($scope.adviceLC['tcname'] == $scope.student['teachername']){
+        $scope.advice.push($scope.adviceLC);
+        console.log($scope.advice)
+        console.log($scope.adviceLC)
+    }
 
     /**
      * Handle Logout Function by clear localStorage
@@ -401,10 +409,10 @@ app.controller("teacherController", function ($scope, $location, $http, $window)
     $scope.messadvice = "";
     $scope.list_advice = [];
     $scope.sendadvice = function () {
-        if ($scope.titleadvice == "" && $scope.messadvice == "") {
-            $scope.erroradvice = "Please re-check input data and cannot update !"
+        if ($scope.titleadvice == "" || $scope.messadvice == "") {
+            $scope.erroradvice = "Please re-check input data and cannot empty !"
             $scope.success = "";
-        } else if ($scope.messadvice) {
+        } else if ($scope.messadvice.length > 100) {
             $scope.erroradvice = "Message max 100 characters allow";
         } else {
             $scope.send = {
@@ -412,9 +420,11 @@ app.controller("teacherController", function ($scope, $location, $http, $window)
                 "titleadvice": $scope.titleadvice,
                 "messadvice": $scope.messadvice
             }
-            window.localStorage.setItem('advice', $scope.send);
+            window.localStorage.setItem('advice', JSON.stringify($scope.send));
             $scope.success = "Send success !";
             $scope.erroradvice = "";
+            $scope.titleadvice = "";
+            $scope.messadvice = "";
         }
     }
     /**

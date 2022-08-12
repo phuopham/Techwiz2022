@@ -277,7 +277,11 @@
                         </div>
                         <div class="mt-3">
                             <textarea class="form-control rounded-0" style="resize: none;" rows="5"
-                                placeholder="Message" ng-click="messadvice"></textarea>
+                                placeholder="Message" ng-model="messadvice"></textarea>
+                        </div>
+                        <div>
+                            <span class="text-danger">{{erroradvice}}</span>
+                            <span class="text-success">{{success}}</span>
                         </div>
                         <div class="mt-3">
                             <button class="btn btn-warning" type="submit" ng-click="sendadvice()">
