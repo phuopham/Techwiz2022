@@ -5,5 +5,9 @@
  <br>
  Portal for student management, communication between teachers, students and parents (guardians).
  <br>
- 
+ Language use:
+  HTML, CSS, Javascript
+ Framework use:
+  Boostrap, AngularJs
+  
  Copy right: HELLOWORLD.txt techwiz2022
