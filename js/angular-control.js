@@ -77,12 +77,6 @@ app.controller("loginController", function ($scope, $location, $http) {
                                 };
                                 if (caseErr == false) {
                                     $('#failModal').modal('show');
-                                    $scope.handleFail = function () {
-                                        $('#failModal').modal('hide');
-                                    }
-                                    window.onclick = function () {
-                                        $('#failModal').modal('hide');
-                                    }
                                 };
                                 break;
                             case 2:
@@ -102,12 +96,6 @@ app.controller("loginController", function ($scope, $location, $http) {
                                 };
                                 if (caseErr == false) {
                                     $('#failModal').modal('show');
-                                    $scope.handleFail = function () {
-                                        $('#failModal').modal('hide');
-                                    }
-                                    window.onclick = function () {
-                                        $('#failModal').modal('hide');
-                                    }
                                 };
                                 break;
                             case 3:
@@ -127,12 +115,6 @@ app.controller("loginController", function ($scope, $location, $http) {
                                 };
                                 if (caseErr == false) {
                                     $('#failModal').modal('show');
-                                    $scope.handleFail = function () {
-                                        $('#failModal').modal('hide');
-                                    }
-                                    window.onclick = function () {
-                                        $('#failModal').modal('hide');
-                                    }
                                 };
                                 break;
                         };
